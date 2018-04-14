@@ -1,7 +1,7 @@
 {
-  "name": "mall",
-  "version": "1.0.0",
-  "description": "mall",
+  "name": "nice-mall",
+  "version": "0.0.1",
+  "description": "nice mall",
   "author": "liangxiaojie",
   "private": true,
   "scripts": {
