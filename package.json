@@ -13,6 +13,9 @@
     "precommit": "npm run lint"
   },
   "dependencies": {
+    "@fortawesome/fontawesome": "^1.1.5",
+    "@fortawesome/fontawesome-free-regular": "^5.0.10",
+    "@fortawesome/vue-fontawesome": "^0.0.22",
     "@nuxtjs/axios": "^5.0.0",
     "element-ui": "^2.2.1",
     "express": "^4.15.3",

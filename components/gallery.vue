@@ -39,7 +39,7 @@ export default {
   },
   methods: {
     go(linkUrl) {
-      window.location.href = linkUrl
+      window.location.href = linkUrl || '#'
     }
   }
 }
