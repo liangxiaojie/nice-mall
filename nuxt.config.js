@@ -59,6 +59,14 @@ module.exports = {
     ** You can extend webpack config here
     */
     extend(config, ctx) {
+      // swiper
+      config.module.rules.push({
+        test: /\.js$/,
+        include: /node_modules\/(dom7|swiper)\/.*/,
+        loader: 'babel-loader',
+        options: this.getBabelOptions({ isServer: !ctx.isClient })
+      })
+
       // Run ESLint on save
       if (ctx.isDev && ctx.isClient) {
         config.module.rules.push({
