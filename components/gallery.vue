@@ -54,7 +54,7 @@ export default {
     justify-content: center;
     align-items: center;
     text-align: center;
-    min-height: 230px;
+    min-height: 2rem;
     img {
       width: 100%;
     }

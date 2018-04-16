@@ -35,7 +35,8 @@ module.exports = {
   */
   plugins: [
     '@/plugins/element-ui',
-    '@/plugins/font-awesome-icon'
+    '@/plugins/font-awesome-icon',
+    { src: '@/plugins/rem', ssr: false }
   ],
 
   /*
@@ -77,6 +78,8 @@ module.exports = {
           exclude: /(node_modules)/
         })
       }
+
+      config.devtool = 'eval'
     }
   }
 }
