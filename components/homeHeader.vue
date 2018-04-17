@@ -5,7 +5,7 @@
         <i class="header-icon el-icon-search"></i>搜索商品名称
       </div>
       <div class="header-right">
-        <fa-icon class="header-icon" :icon="['far', 'user']" />
+        <fa-icon class="header-icon" icon="user" />
       </div>
     </div>
   </header>
@@ -63,8 +63,8 @@ export default {
     &.fa-user {
       width: .18rem;
       height: .18rem;
-      color: #888;
-      margin: 0 .1rem;
+      color: #999;
+      margin: 0 .15rem 0 .15rem;
     }
   }
 }

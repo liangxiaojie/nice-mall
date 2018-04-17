@@ -4,17 +4,20 @@
     <div class="home-body">
       <gallery :items="galleryItems" />
     </div>
+    <app-footer />
   </section>
 </template>
 
 <script>
 import homeHeader from '~/components/homeHeader'
 import gallery from '~/components/gallery'
+import appFooter from '~/components/appFooter'
 
 export default {
   components: {
     homeHeader,
-    gallery
+    gallery,
+    appFooter
   },
   data() {
     return {

@@ -34,9 +34,9 @@ module.exports = {
   ** Plugins to load before mounting the App
   */
   plugins: [
+    { src: '@/plugins/rem', ssr: false },
     '@/plugins/element-ui',
     '@/plugins/font-awesome-icon',
-    { src: '@/plugins/rem', ssr: false }
   ],
 
   /*

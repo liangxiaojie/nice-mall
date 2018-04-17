@@ -82,9 +82,9 @@
   version "0.1.4"
   resolved "http://registry.npm.taobao.org/@fortawesome/fontawesome-common-types/download/@fortawesome/fontawesome-common-types-0.1.4.tgz#1fbc66f0223646f23c5550c2c12e341078e2c262"
 
-"@fortawesome/fontawesome-free-regular@^5.0.10":
+"@fortawesome/fontawesome-free-solid@^5.0.10":
   version "5.0.10"
-  resolved "http://registry.npm.taobao.org/@fortawesome/fontawesome-free-regular/download/@fortawesome/fontawesome-free-regular-5.0.10.tgz#f81dfeaa24896bfac8fb50c58c6c02f87a2a0c80"
+  resolved "http://registry.npm.taobao.org/@fortawesome/fontawesome-free-solid/download/@fortawesome/fontawesome-free-solid-5.0.10.tgz#b54c87d3ce4ffd0546b60d12e898e87b59776c30"
   dependencies:
     "@fortawesome/fontawesome-common-types" "^0.1.4"
 
