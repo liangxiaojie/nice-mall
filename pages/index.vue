@@ -3,6 +3,7 @@
     <home-header />
     <div class="home-body">
       <gallery :items="galleryItems" />
+      <box-group />
     </div>
     <app-footer />
   </section>
@@ -11,12 +12,14 @@
 <script>
 import homeHeader from '~/components/homeHeader'
 import gallery from '~/components/gallery'
+import boxGroup from '~/components/boxGroup'
 import appFooter from '~/components/appFooter'
 
 export default {
   components: {
     homeHeader,
     gallery,
+    boxGroup,
     appFooter
   },
   data() {

@@ -39,6 +39,7 @@ export default {
   height: .5rem;
   font-size: .12rem;
   color: #999;
+  background-color: #fff;
   box-shadow: 0 .03rem .14rem .02rem rgba(0,0,0,.12);
   .footer-container {
     display: flex;
