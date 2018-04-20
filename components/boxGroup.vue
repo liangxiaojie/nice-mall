@@ -25,8 +25,8 @@ export default {
 .box-group {
   display: flex;
   align-items: center;
-  height: .8rem;
-  font-size: .12rem;
+  height: 1rem;
+  font-size: .14rem;
   color: #999;
   .nav-item {
     display: block;
@@ -36,7 +36,7 @@ export default {
       display: block;
       width: .33rem;
       height: .33rem;
-      margin: .02rem auto .02rem;
+      margin: 0 auto .04rem;
     }
   }
 }
