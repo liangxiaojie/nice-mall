@@ -4,21 +4,18 @@
       <nuxt-link class="nav-item" to="/" exact>
         <fa-icon class="footer-icon" icon="home" /> 首页
       </nuxt-link>
-      <a class="nav-item">
-        <fa-icon class="footer-icon" icon="shopping-bag" />
-        <span>商城</span>
-      </a>
-      <nuxt-link class="nav-item" to="/lease">
+      <nuxt-link class="nav-item" to="/mall" exact>
+        <fa-icon class="footer-icon" icon="shopping-bag" /> 商城
+      </nuxt-link>
+      <nuxt-link class="nav-item" to="/lease" exact>
         <fa-icon class="footer-icon" icon="sync" /> 租赁
       </nuxt-link>
-      <a class="nav-item">
-        <fa-icon class="footer-icon" icon="shopping-cart" />
-        <span>购物车</span>
-      </a>
-      <a class="nav-item">
-        <fa-icon class="footer-icon" icon="user" />
-        <span>我的</span>
-      </a>
+      <nuxt-link class="nav-item" to="/cart" exact>
+        <fa-icon class="footer-icon" icon="shopping-cart" /> 购物车
+      </nuxt-link>
+      <nuxt-link class="nav-item" to="/user" exact>
+        <fa-icon class="footer-icon" icon="user" /> 我的
+      </nuxt-link>
     </div>
   </footer>
 </template>
@@ -59,7 +56,7 @@ export default {
       .footer-icon {
         display: block;
         margin: .02rem auto .02rem;
-        font-size: .18rem;
+        font-size: .2rem;
       }
     }
   }
