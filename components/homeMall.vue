@@ -1,6 +1,6 @@
 <template>
   <div class="container">
-    <div class="title">商城热销</div>
+    <div class="title">热卖推荐</div>
     <div class="swiper-container" ref="homeMallGallery">
       <div class="swiper-wrapper">
         <div class="swiper-slide" v-for="(item, key) in items" :key="key">
