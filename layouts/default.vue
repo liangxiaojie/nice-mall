@@ -20,11 +20,17 @@ html {
   margin: 0;
 }
 
+.warp-container {
+  position: relative;
+  height: 100%;
+  font-size: .12rem;
+  padding-bottom: .56rem;
+  margin: 0 auto;
+}
+
 @media screen and (min-width: 769px) {
   .warp-container {
-    position: relative;
     width: 768px;
-    margin: 0 auto;
   }
 }
 
@@ -32,4 +38,8 @@ html {
   width: .18rem;
 }
 
+.divider_line {
+  height: .08rem;
+  background-color: rgb(245, 245, 245);
+}
 </style>

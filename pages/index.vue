@@ -1,16 +1,18 @@
 <template>
-  <section class="container">
+  <div class="container">
     <home-header />
-    <div class="home-body">
-      <gallery :items="galleryItems" />
-      <box-group />
-      <div class="divider_line"></div>
-      <home-mall :items="goods" />
-      <div class="divider_line"></div>
-      <home-lease :items="leases" />
-    </div>
+    <gallery :items="galleryItems" />
+    <box-group />
+    <div class="divider_line"></div>
+    <div class="title">热卖推荐</div>
+    <home-mall :items="goods" />
+    <div class="more">更多商城产品 ></div>
+    <div class="divider_line"></div>
+    <div class="title">热门租赁</div>
+    <lease-list :items="leases" />
+    <div class="more">更多租赁产品 ></div>
     <app-footer />
-  </section>
+  </div>
 </template>
 
 <script>
@@ -18,7 +20,7 @@ import homeHeader from '~/components/homeHeader'
 import gallery from '~/components/gallery'
 import boxGroup from '~/components/boxGroup'
 import homeMall from '~/components/homeMall'
-import homeLease from '~/components/homeLease'
+import leaseList from '~/components/leaseList'
 import appFooter from '~/components/appFooter'
 
 export default {
@@ -27,7 +29,7 @@ export default {
     gallery,
     boxGroup,
     homeMall,
-    homeLease,
+    leaseList,
     appFooter
   },
   data() {
@@ -108,15 +110,20 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.home-body {
-  position: absolute;
-  top: .42rem;
-  left: 0;
-  right: 0;
-  padding-bottom: .56rem;
+.container {
+  margin-top: .42rem;
 }
-.divider_line {
-  height: .08rem;
-  background-color: rgb(245, 245, 245);
+.title {
+  font-size: .16rem;
+  padding: .1rem .2rem;
+  color: rgba(0,0,0,.6);
+  border-bottom: .01rem solid rgb(235, 235, 235);
+}
+.more {
+  font-size: .14rem;
+  padding: .1rem;
+  border-top: .01rem solid rgb(235, 235, 235);
+  text-align: center;
+  color: rgba(0,0,0,.6);
 }
 </style>

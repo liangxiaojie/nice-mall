@@ -1,18 +1,16 @@
 <template>
   <footer class="app-footer">
     <div class="footer-container">
-      <a class="nav-item">
-        <fa-icon class="footer-icon" icon="home" />
-        <span>首页</span>
-      </a>
+      <nuxt-link class="nav-item" to="/" exact>
+        <fa-icon class="footer-icon" icon="home" /> 首页
+      </nuxt-link>
       <a class="nav-item">
         <fa-icon class="footer-icon" icon="shopping-bag" />
         <span>商城</span>
       </a>
-      <a class="nav-item">
-        <fa-icon class="footer-icon" icon="sync" />
-        <span>租赁</span>
-      </a>
+      <nuxt-link class="nav-item" to="/lease">
+        <fa-icon class="footer-icon" icon="sync" /> 租赁
+      </nuxt-link>
       <a class="nav-item">
         <fa-icon class="footer-icon" icon="shopping-cart" />
         <span>购物车</span>
@@ -53,6 +51,11 @@ export default {
       display: block;
       flex: 1 1 auto;
       text-align: center;
+      color: #999;
+      text-decoration: none;
+      &.nuxt-link-active {
+        color: #ff6700;
+      }
       .footer-icon {
         display: block;
         margin: .02rem auto .02rem;

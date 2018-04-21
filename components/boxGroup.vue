@@ -26,7 +26,6 @@ export default {
   display: flex;
   align-items: center;
   height: .68rem;
-  font-size: .12rem;
   color: #999;
   .nav-item {
     display: block;
