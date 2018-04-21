@@ -38,7 +38,7 @@ export default {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    height: .5em;
+    height: .42em;
   }
   .header-title {
     display: flex;
@@ -50,19 +50,19 @@ export default {
     color: rgba(0,0,0,.3);
     background-color: #fff;
     border-radius: .03rem;
-    font-size: .18rem;
+    font-size: .16rem;
     margin-left: .1rem;
   }
   .header-icon {
     display: block;
     &.el-icon-search {
       padding: .08rem;
-      font-size: .18rem;
+      font-size: .16rem;
       color: rgba(0,0,0,.3);
     }
     &.fa-user {
-      width: .18rem;
-      height: .18rem;
+      width: .16rem;
+      height: .16rem;
       color: #999;
       margin: 0 .15rem 0 .15rem;
     }

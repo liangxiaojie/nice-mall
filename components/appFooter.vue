@@ -6,8 +6,12 @@
         <span>首页</span>
       </a>
       <a class="nav-item">
-        <fa-icon class="footer-icon" icon="tags" />
-        <span>分类</span>
+        <fa-icon class="footer-icon" icon="shopping-bag" />
+        <span>商城</span>
+      </a>
+      <a class="nav-item">
+        <fa-icon class="footer-icon" icon="sync" />
+        <span>租赁</span>
       </a>
       <a class="nav-item">
         <fa-icon class="footer-icon" icon="shopping-cart" />
@@ -36,7 +40,7 @@ export default {
   left: auto;
   right: auto;
   width: 3.75rem;
-  height: .5rem;
+  height: .56rem;
   font-size: .12rem;
   color: #999;
   background-color: #fff;
