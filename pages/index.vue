@@ -6,11 +6,19 @@
     <div class="divider_line"></div>
     <div class="title">热卖推荐</div>
     <home-mall :items="goods" />
-    <div class="more">更多商城产品 ></div>
+    <div class="more">
+      <nuxt-link class="nav-item" to="/mall">
+        更多商城产品 >
+      </nuxt-link>
+    </div>
     <div class="divider_line"></div>
     <div class="title">热门租赁</div>
     <lease-list :items="leases" />
-    <div class="more">更多租赁产品 ></div>
+    <div class="more">
+      <nuxt-link class="nav-item" to="/lease">
+        更多租赁产品 >
+      </nuxt-link>
+    </div>
     <app-footer />
   </div>
 </template>
@@ -124,6 +132,9 @@ export default {
   padding: .1rem;
   border-top: .01rem solid rgb(235, 235, 235);
   text-align: center;
-  color: rgba(0,0,0,.6);
+  a {
+    color: rgba(0,0,0,.6);
+    text-decoration: none;
+  }
 }
 </style>

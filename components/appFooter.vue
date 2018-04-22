@@ -4,11 +4,11 @@
       <nuxt-link class="nav-item" to="/" exact>
         <fa-icon class="footer-icon" icon="home" /> 首页
       </nuxt-link>
-      <nuxt-link class="nav-item" to="/mall" exact>
-        <fa-icon class="footer-icon" icon="shopping-bag" /> 商城
-      </nuxt-link>
       <nuxt-link class="nav-item" to="/lease" exact>
         <fa-icon class="footer-icon" icon="sync" /> 租赁
+      </nuxt-link>
+      <nuxt-link class="nav-item" to="/mall" exact>
+        <fa-icon class="footer-icon" icon="shopping-bag" /> 商城
       </nuxt-link>
       <nuxt-link class="nav-item" to="/cart" exact>
         <fa-icon class="footer-icon" icon="shopping-cart" /> 购物车
