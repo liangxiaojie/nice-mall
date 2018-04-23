@@ -4,6 +4,8 @@
     <gallery :items="galleryItems" />
     <box-group />
     <div class="divider_line"></div>
+    {{hello}}
+    <el-button @click="handleHello">foo</el-button>
     <div class="title">热卖推荐</div>
     <home-mall :items="goods" />
     <div class="more">
@@ -39,6 +41,11 @@ export default {
     homeMall,
     leaseList,
     appFooter
+  },
+  computed: {
+    hello() {
+      return this.$store.state.hello
+    }
   },
   data() {
     return {
@@ -112,6 +119,11 @@ export default {
         mark: 5,
         sales: 5
       }]
+    }
+  },
+  methods: {
+    handleHello() {
+      this.$store.dispatch('foo');
     }
   }
 }
