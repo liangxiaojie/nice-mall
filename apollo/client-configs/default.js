@@ -4,7 +4,7 @@ import { InMemoryCache } from 'apollo-cache-inmemory'
 
 export default (ctx) => {
   // const httpLink = new HttpLink({ uri: 'http://localhost:8000/graphql' })
-  const httpLink = new HttpLink({ uri: 'http://localhost:7001/graphql' })
+  const httpLink = new HttpLink({ uri: process.env.API_SERVICE_URL || 'http://localhost:7001/graphql' })
 
 
   // middleware
