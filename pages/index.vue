@@ -19,8 +19,6 @@
         更多租赁产品 >
       </nuxt-link>
     </div>
-    {{hello}}
-    <el-button @click="handleHello">foo</el-button>
     <app-footer />
   </div>
 </template>
