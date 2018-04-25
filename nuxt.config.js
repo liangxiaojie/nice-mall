@@ -19,7 +19,7 @@ module.exports = {
   },
 
   env: {
-    API_SERVICE_URL: process.env.API_SERVICE_URL || 'http://localhost:7001/graphql'
+    API_SERVICE_URL: process.env.API_SERVICE_URL || 'http://localhost:7001'
   },
 
   /*

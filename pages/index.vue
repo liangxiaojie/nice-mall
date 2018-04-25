@@ -4,8 +4,6 @@
     <gallery :items="galleryItems" />
     <box-group />
     <div class="divider_line"></div>
-    {{hello}}
-    <el-button @click="handleHello">foo</el-button>
     <div class="title">热卖推荐</div>
     <home-mall :items="goods" />
     <div class="more">
@@ -21,6 +19,8 @@
         更多租赁产品 >
       </nuxt-link>
     </div>
+    {{hello}}
+    <el-button @click="handleHello">foo</el-button>
     <app-footer />
   </div>
 </template>
