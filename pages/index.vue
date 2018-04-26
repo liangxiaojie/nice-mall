@@ -49,19 +49,19 @@ export default {
   data() {
     return {
       galleryItems: [{
-        imgSrc: '/images/gallery/1.jpg',
+        imgSrc: 'http://hhfanyi.com/uploads/20171230/7aaa052b07d2ef2df1241c851df5ec48.jpg',
         linkUrl: ''
       }, {
-        imgSrc: '/images/gallery/2.jpg',
+        imgSrc: 'http://hhfanyi.com/uploads/20171228/ec25f6b10aac77168298b1e2acb661e4.jpg',
         linkUrl: 'https://mp.weixin.qq.com/s/_jzqa-FFZpqwkL681QgbiQ'
       }, {
-        imgSrc: '/images/gallery/3.jpg',
+        imgSrc: 'http://hhfanyi.com/uploads/20171228/2845c37d39f4119937a4539f2480b5ec.jpg',
         linkUrl: 'http://mp.weixin.qq.com/s/wa4rqqfJ-9YPCx-rq5wY3A'
       }, {
-        imgSrc: '/images/gallery/4.jpg',
+        imgSrc: 'http://hhfanyi.com/uploads/20171229/523c80900dd6be07b3270310295b0acb.jpg',
         linkUrl: ''
       }, {
-        imgSrc: '/images/gallery/5.jpg',
+        imgSrc: 'http://hhfanyi.com/uploads/20171230/85de1bfbefcb397b2caea08101b885a1.jpg',
         linkUrl: ''
       }],
       goods: [{
