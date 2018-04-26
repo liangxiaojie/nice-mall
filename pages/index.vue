@@ -19,6 +19,7 @@
         更多租赁产品 >
       </nuxt-link>
     </div>
+    <div class="divider_line"></div>
     <app-footer />
   </div>
 </template>
