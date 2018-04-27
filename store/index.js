@@ -1,26 +1,26 @@
-import allCarsGql from '~/apollo/queries/allCars'
+import goodsesGQL from '~/apollo/queries/goodses.gql'
 
 export default {
   state() {
     return {
-      hello: null
+      goodses: null
     }
   },
   mutations: {
-    setHello(state, hello) {
-      state.hello = hello
+    setGoodses(state, goodses) {
+      state.goodses = goodses
     }
   },
   actions: {
-    async foo (store, payload) {
+    async getGoodses (store, payload) {
       let client = this.app.apolloProvider.defaultClient
       try {
         const {data} = await client.query({
-          query: allCarsGql
+          query: goodsesGQL
         })
-        store.commit('setHello', data.hello)
+        store.commit('setGoodses', data.goodses)
       } catch (error) {
-        throw new Error(error)
+        console.log(error)
       }
     }
   }

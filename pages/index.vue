@@ -5,7 +5,7 @@
     <box-group />
     <div class="divider_line"></div>
     <div class="title">热卖推荐</div>
-    <home-mall :items="goods" />
+    <home-mall :items="goodses" />
     <div class="more">
       <nuxt-link class="nav-item" to="/mall">
         更多商城产品 >
@@ -42,9 +42,9 @@ export default {
     appFooter
   },
   computed: {
-    hello() {
-      return this.$store.state.hello
-    }
+    // goodses() {
+    //   return this.$store.state.goodses
+    // }
   },
   data() {
     return {
@@ -64,7 +64,7 @@ export default {
         imgSrc: 'http://hhfanyi.com/uploads/20171230/85de1bfbefcb397b2caea08101b885a1.jpg',
         linkUrl: ''
       }],
-      goods: [{
+      goodses: [{
         imgSrc: 'http://hhfanyi.com/uploads/20180125/4b3ac5f3522e44a577b6125d842ac6ad.png',
         title: 'Apple iMac 21.5英寸一体机',
         price: 7999,
@@ -120,9 +120,12 @@ export default {
       }]
     }
   },
+  mounted() {
+    // this.getGoodses()
+  },
   methods: {
-    handleHello() {
-      this.$store.dispatch('foo');
+    getGoodses() {
+      this.$store.dispatch('getGoodses');
     }
   }
 }

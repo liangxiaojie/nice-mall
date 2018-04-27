@@ -28,14 +28,16 @@ export default {
   mounted(){
     this.$nextTick(function(){
       var mySwiper = new Swiper(this.$refs.homeMallGallery, {
-      preloadImages: false,
-      lazy: {
-        loadPrevNext: true,
-      },
-      slidesPerView: 2.7,
-      spaceBetween: 20,
-      freeMode: true,
-    });
+        preloadImages: false,
+        lazy: {
+          loadPrevNext: true,
+        },
+        slidesPerView: 2.7,
+        spaceBetween: 20,
+        freeMode: true,
+        observer:true,
+        observeParents:true
+      });
     })
   },
 }
@@ -43,9 +45,8 @@ export default {
 
 <style lang="scss" scoped>
 .swiper-container {
-  padding: 0 .2rem;
+  padding: .2rem;
   .swiper-slide {
-    min-height: 2rem;
     img {
       width: 100%;
     }
