@@ -3,17 +3,23 @@
     <cartHeader />
     <cartGoodsList :items="goods" />
     <div class="divider_line"></div>
+    <cartFooter />
+    <appFooter />
   </div>
 </template>
 
 <script>
 import cartHeader from '~/components/cartHeader'
 import cartGoodsList from '~/components/cartGoodsList'
+import cartFooter from '~/components/cartFooter'
+import appFooter from '~/components/appFooter'
 
 export default {
   components: {
     cartHeader,
-    cartGoodsList
+    cartGoodsList,
+    cartFooter,
+    appFooter
   },
   data: function() {
     return {
@@ -35,6 +41,42 @@ export default {
         price: 2799,
         count: 1,
         checked: true,
+      }, {
+        imgSrc: 'http://hhfanyi.com/uploads/20180124/b428d0570ddef5b74faaa28822ecd292.jpg',
+        title: 'OPPO R11s （新年红）4G+64G',
+        price: 2799,
+        count: 1,
+        checked: true,
+      }, {
+        imgSrc: 'http://hhfanyi.com/uploads/20180124/b428d0570ddef5b74faaa28822ecd292.jpg',
+        title: 'OPPO R11s （新年红）4G+64G',
+        price: 2799,
+        count: 1,
+        checked: true,
+      }, {
+        imgSrc: 'http://hhfanyi.com/uploads/20180124/b428d0570ddef5b74faaa28822ecd292.jpg',
+        title: 'OPPO R11s （新年红）4G+64G',
+        price: 2799,
+        count: 1,
+        checked: true,
+      }, {
+        imgSrc: 'http://hhfanyi.com/uploads/20180124/b428d0570ddef5b74faaa28822ecd292.jpg',
+        title: 'OPPO R11s （新年红）4G+64G',
+        price: 2799,
+        count: 1,
+        checked: true,
+      }, {
+        imgSrc: 'http://hhfanyi.com/uploads/20180124/b428d0570ddef5b74faaa28822ecd292.jpg',
+        title: 'OPPO R11s （新年红）4G+64G',
+        price: 2799,
+        count: 1,
+        checked: true,
+      }, {
+        imgSrc: 'http://hhfanyi.com/uploads/20180124/b428d0570ddef5b74faaa28822ecd292.jpg',
+        title: 'OPPO R11s （新年红）4G+64G',
+        price: 2799,
+        count: 1,
+        checked: true,
       }]
     }
   }
@@ -44,5 +86,6 @@ export default {
 <style lang="scss" scoped>
 .container {
   margin-top: .45rem;
+  padding-bottom: .45rem;
 }
 </style>

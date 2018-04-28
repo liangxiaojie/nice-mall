@@ -44,6 +44,9 @@ export default {
     p {
       margin-bottom: .04rem;
     }
+    /deep/ .el-input-number {
+      width: 1rem;
+    }
   }
 }
 .good-image {

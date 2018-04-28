@@ -1,48 +1,74 @@
 <template>
-  <header class="header">
-    <div class="header-wrapper">
-      <div class="header-left">
-        <fa-icon class="header-icon" icon="chevron-left" @click="goBack" />
+  <footer class="footer">
+    <div class="footer-wrapper">
+      <div class="footer-left">
+        <el-checkbox :indeterminate="isIndeterminate" v-model="checkAll" @change="handleCheckAllChange">全选</el-checkbox>
       </div>
-      <div class="header-title">购物车</div>
-      <div class="header-right">
-        <fa-icon class="header-icon" icon="user" />
+      <div class="footer-title">共{{buyCount}}件 合计：<span class="price">{{totalAmount}}</span>元</div>
+      <div class="footer-right">
+        去结算
       </div>
     </div>
-  </header>
+  </footer>
 </template>
 
 <script>
+const cityOptions = ['上海', '北京', '广州', '深圳'];
 export default {
   props: {
+    buyCount: {
+      type: Number,
+      default: 0
+    },
+    totalAmount: {
+      type: Number,
+      default: 0
+    }
+  },
+  data() {
+    return {
+      isIndeterminate: false,
+      checkAll: true,
+      checkedCities: ['上海', '北京'],
+      cities: cityOptions,
+    }
   },
   mounted() {
 
   },
   methods: {
-    goBack() {
-      this.$router.go(-1)
+    handleCheckAllChange(val) {
+      this.checkedCities = val ? cityOptions : [];
+      this.isIndeterminate = false;
+    },
+    handleCheckedCitiesChange(val) {
+      let checkedCount = val.length;
+      this.checkAll = checkedCount === this.cities.length;
+      this.isIndeterminate = checkedCount > 0 && checkedCount < this.cities.length;
     }
   }
 };
 </script>
 
 <style lang="scss" scoped>
-.header {
+.footer {
   position: fixed;
   width: 3.75rem;
-  top: 0;
+  bottom: .56rem;
   left: auto;
   right: auto;
   z-index: 99;
-  background: #f2f2f2;
-  .header-wrapper {
+  background: #fcfcfc;
+  .footer-wrapper {
     display: flex;
     align-items: center;
     justify-content: space-between;
     height: .45rem;
   }
-  .header-title {
+  .footer-left {
+    padding-left: .1rem;
+  }
+  .footer-title {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -51,20 +77,16 @@ export default {
     color: rgba(0,0,0,.6);
     font-size: .16rem;
   }
-  .header-icon {
-    display: block;
-    &.el-icon-search {
-      padding: .08rem;
-      font-size: .16rem;
-      color: rgba(0,0,0,.3);
-    }
-    &.svg-inline--fa {
-      width: .16rem;
-      height: .16rem;
-      color: #999;
-      margin: 0 .15rem 0 .15rem;
-    }
-  }
+}
+.footer-right {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 1.8rem;
+  height: 100%;
+  font-size: .16rem;
+  color: rgba(255,255,255,.9);
+  background-color: rgb(237, 91, 0);
 }
 </style>
 
