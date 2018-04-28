@@ -1,17 +1,18 @@
 <template>
   <div class="good-list">
     <div class="item" v-for="(item, key) in items" :key="key">
+      <div class="checkbox-container">
+        <el-checkbox v-model="item.checked"></el-checkbox>
+      </div>
       <div class="good-image">
         <img :src="item.imgSrc" />
       </div>
       <div class="good-info">
         <p class="good-title">{{item.title}}</p>
-        <p class="good-discription">{{item.discription}}</p>
+        <p class="price">售价：{{item.price}}</p>
         <div class="flex-row">
-          <div class="price">
-            ¥{{item.price.toFixed(2)}} <s class="old">¥{{item.priceOld.toFixed(2)}}</s>
-          </div>
-          <div class="sales">{{item.sales}}人已购</div>
+          <el-input-number size="mini" v-model="item.count" :min="1"></el-input-number>
+          <fa-icon class="icon-trash" icon="trash-alt" />
         </div>
       </div>
     </div>
@@ -27,7 +28,7 @@ export default {
         return []
       }
     }
-  },
+  }
 }
 </script>
 
@@ -59,7 +60,7 @@ export default {
 .good-info {
   width: 2.5rem;
   box-sizing: border-box;
-  padding-right: .12rem;
+  padding-right: .16rem;
 }
 .good-title {
   font-size: .14rem;
@@ -71,6 +72,7 @@ export default {
 .flex-row {
   display: flex;
   justify-content: space-between;
+  align-items: center;
 }
 .price {
   display: flex;
@@ -91,5 +93,13 @@ export default {
   color: rgba(0,0,0,.54);
   line-height: 1.8;
   align-self: flex-end;
+}
+.icon-trash {
+  font-size: .16rem;
+  color: rgba(0,0,0,.4);
+}
+.checkbox-container {
+  width: .25rem;
+  text-align: right;
 }
 </style>
