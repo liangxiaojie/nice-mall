@@ -54,7 +54,7 @@ export default {
 .footer {
   position: fixed;
   width: 3.75rem;
-  bottom: .56rem;
+  bottom: .55rem;
   left: auto;
   right: auto;
   z-index: 99;

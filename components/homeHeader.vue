@@ -32,7 +32,7 @@ export default {
   left: auto;
   right: auto;
   z-index: 99;
-  box-shadow: 0 .02rem .04rem -0.01rem rgba(0,0,0,.3);
+  box-shadow: 0 .01rem .03rem -0.01rem rgba(0,0,0,.3);
   background: #f7f8fa;
   .header-wrapper {
     display: flex;
