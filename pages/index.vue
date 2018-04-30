@@ -1,7 +1,10 @@
 <template>
   <div class="container">
-    <home-header />
     <gallery :items="galleryItems" />
+    <Search
+      auto-scroll-to-top
+      @on-submit="onSubmit"
+    />
     <box-group />
     <div class="divider_line"></div>
     <div class="title">热卖推荐</div>
@@ -25,6 +28,7 @@
 </template>
 
 <script>
+import { Search } from 'vux'
 import homeHeader from '~/components/homeHeader'
 import gallery from '~/components/gallery'
 import boxGroup from '~/components/boxGroup'
@@ -34,6 +38,7 @@ import appFooter from '~/components/appFooter'
 
 export default {
   components: {
+    Search,
     homeHeader,
     gallery,
     boxGroup,
@@ -126,15 +131,15 @@ export default {
   methods: {
     getGoodses() {
       this.$store.dispatch('getGoodses');
-    }
+    },
+    onSubmit () {
+
+    },
   }
 }
 </script>
 
 <style lang="scss" scoped>
-.container {
-  margin-top: .42rem;
-}
 .title {
   font-size: .16rem;
   padding: .1rem .2rem;

@@ -1,4 +1,6 @@
 const pkg = require('./package')
+const path = require('path')
+const vuxLoader = require('vux-loader')
 
 module.exports = {
   mode: 'universal',
@@ -31,7 +33,8 @@ module.exports = {
   ** Global CSS
   */
   css: [
-    'element-ui/lib/theme-chalk/index.css',
+    'vux/src/styles/reset.less',
+    'vux/src/styles/1px.less',
     'assets/main.scss'
   ],
 
@@ -39,8 +42,13 @@ module.exports = {
   ** Plugins to load before mounting the App
   */
   plugins: [
-    { src: '@/plugins/rem', ssr: false },
-    '@/plugins/element-ui',
+    { src: '@/plugins/rem', ssr: false }, {
+      src: '~/plugins/vux-plugins',
+      ssr: false
+    }, {
+      src: '~/plugins/vux-components',
+      ssr: true
+    },
     '@/plugins/font-awesome-icon',
   ],
 
@@ -91,6 +99,17 @@ module.exports = {
       }
 
       config.devtool = 'eval'
+
+      const configs = vuxLoader.merge(config, {
+        options: {
+          ssr: true
+        },
+        plugins: ['vux-ui', {
+          name: 'less-theme',
+          path: path.join(__dirname, './assets/theme.less')
+        }]
+      })
+      return configs
     }
   }
 }

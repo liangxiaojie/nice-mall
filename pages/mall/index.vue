@@ -1,40 +1,53 @@
 <template>
   <div class="container">
-    <el-tabs class="mall-tabs" v-model="activeName">
-      <el-tab-pane label="产品" name="mall">
-        <div class="gallery-header">
-          <img src="/images/mall-gallery.png" />
+    <tab :line-width=2 active-color='#ff6700' v-model="activeIndex">
+      <tab-item class="vux-center">产品</tab-item>
+      <tab-item class="vux-center">服务</tab-item>
+    </tab>
+    <swiper v-model="activeIndex" :show-dots="false">
+      <swiper-item>
+        <div class="tab-swiper">
+          <div class="gallery-header">
+            <img src="/images/mall-gallery.png" />
+          </div>
+          <div class="content">
+            <good-list :items="goods" />
+            <div class="divider_line"></div>
+          </div>
         </div>
-        <div class="content">
-          <good-list :items="goods" />
-          <div class="divider_line"></div>
-        </div>
-      </el-tab-pane>
-      <el-tab-pane label="服务" name="service">
-        <div class="gallery-header">
-          <img src="/images/mall-service-gallery.png" />
-        </div>
-        <div class="content">
+      </swiper-item>
+      <swiper-item>
+        <div class="tab-swiper">
+          <div class="gallery-header">
+            <img src="/images/mall-service-gallery.png" />
+          </div>
+          <div class="content">
 
+          </div>
         </div>
-      </el-tab-pane>
-    </el-tabs>
+      </swiper-item>
+    </swiper>
     <app-footer />
   </div>
 </template>
 
 <script>
+import { Tab, TabItem, Swiper, SwiperItem } from 'vux'
 import goodList from '~/components/goodList'
 import appFooter from '~/components/appFooter'
 
 export default {
   components: {
+    Tab,
+    TabItem,
+    Swiper,
+    SwiperItem,
     goodList,
     appFooter
   },
   data: function() {
     return {
-      activeName: 'mall',
+      activeIndex: 0,
       goods: [{
         imgSrc: 'http://hhfanyi.com/uploads/20180125/0d71d7fdbf7ca83c0781035275058674.jpg',
         title: 'Apple iMac 21.5英寸一体机',
@@ -112,31 +125,18 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.mall-tabs {
-  /deep/ .el-tabs__header {
-    margin: 0;
+.container {
+  /deep/ .vux-slider {
+    overflow: initial;
   }
-  /deep/ .el-tabs__item:hover, /deep/ .el-tabs__item.is-active {
-    color: rgb(237, 91, 0);
-  }
-  /deep/ .el-tabs__active-bar {
-    background-color: rgb(237, 91, 0);
-  }
-  /deep/ .el-tabs__nav {
-    width: 100%;
-  }
-  /deep/ .el-tabs__item {
-    width: 50%;
-    height: .42rem;
-    line-height: .42rem;
-    text-align: center;
-    padding: 0;
-    font-size: .16rem;
-    font-weight: normal;
-    color: rgb(116, 116, 116);
-  }
-  /deep/ .el-tabs__active-bar {
-    width: 50% !important;
+  /deep/ .vux-swiper {
+    height: auto !important;
+    overflow: initial;
+    .vux-swiper-item {
+      overflow: initial;
+      height: auto;
+      padding-bottom: .56rem;
+    }
   }
 }
 .gallery-header {

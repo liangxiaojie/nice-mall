@@ -10,13 +10,9 @@
         ¥ {{item.price.toFixed(2)}} <span class="unit">/{{item.priceUnit.displayName}}</span>
       </p>
       <div class="lease-marks">
-        <el-rate
-          v-model="item.mark"
-          disabled
-          show-score
-          text-color="#ff9900"
-          :score-template="`${item.mark.toFixed(1)}分`">
-        </el-rate>
+        <div class="mark">
+          <rater v-model="item.mark" active-color="#ff9900" disabled></rater> {{item.mark.toFixed(1)}}分
+        </div>
         <div class="sales">{{item.sales}}人已租</div>
       </div>
     </div>
@@ -26,6 +22,7 @@
 <script>
 import 'swiper/dist/css/swiper.min.css'
 import Swiper from 'swiper'
+import { Rater } from 'vux'
 
 export default {
   props: {
@@ -36,6 +33,9 @@ export default {
       }
     }
   },
+  components: {
+    Rater
+  }
 }
 </script>
 
@@ -80,13 +80,21 @@ export default {
 .lease-marks {
   display: flex;
   justify-content: space-between;
-  /deep/ .el-rate__text {
-    position: relative;
-    top: .01rem;
+  .mark {
+    font-size: .16rem;
+    color: #ff9900;
+    /deep/ .vux-rater-box {
+      width: auto !important;
+      height: auto !important;
+    }
+    /deep/ .vux-rater-inner {
+      font-size: .15rem;
+      top: -.01rem;
+    }
   }
   .sales {
     color: rgba(0,0,0,.54);
-    line-height: 1.8;
+    line-height: .25rem;
   }
 }
 </style>

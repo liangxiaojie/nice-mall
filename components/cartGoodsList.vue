@@ -2,7 +2,7 @@
   <div class="good-list">
     <div class="item" v-for="(item, key) in items" :key="key">
       <div class="checkbox-container">
-        <el-checkbox v-model="item.checked"></el-checkbox>
+        <CheckIcon :value.sync="item.checked" />
       </div>
       <div class="good-image">
         <img :src="item.imgSrc" />
@@ -11,7 +11,7 @@
         <p class="good-title">{{item.title}}</p>
         <p class="price">售价：{{item.price}}</p>
         <div class="flex-row">
-          <el-input-number size="mini" v-model="item.count" :min="1"></el-input-number>
+          <inline-x-number v-model="item.count" :min="1" />
           <fa-icon class="icon-trash" icon="trash-alt" />
         </div>
       </div>
@@ -20,6 +20,7 @@
 </template>
 
 <script>
+import { CheckIcon, InlineXNumber } from 'vux'
 export default {
   props: {
     items: {
@@ -28,6 +29,10 @@ export default {
         return []
       }
     }
+  },
+  components: {
+    CheckIcon,
+    InlineXNumber
   }
 }
 </script>
@@ -102,7 +107,7 @@ export default {
   color: rgba(0,0,0,.4);
 }
 .checkbox-container {
-  width: .25rem;
+  width: .28rem;
   text-align: right;
 }
 </style>

@@ -2,7 +2,7 @@
   <footer class="footer">
     <div class="footer-wrapper">
       <div class="footer-left">
-        <el-checkbox :indeterminate="isIndeterminate" v-model="checkAll" @change="handleCheckAllChange">全选</el-checkbox>
+        <CheckIcon :value.sync="checkAll" @change="handleCheckAllChange">全选</CheckIcon>
       </div>
       <div class="footer-title">共{{buyCount}}件 合计：<span class="price">{{totalAmount}}</span>元</div>
       <div class="footer-right">
@@ -13,6 +13,8 @@
 </template>
 
 <script>
+import{ CheckIcon } from 'vux'
+
 const cityOptions = ['上海', '北京', '广州', '深圳'];
 export default {
   props: {
@@ -24,6 +26,9 @@ export default {
       type: Number,
       default: 0
     }
+  },
+  components: {
+    CheckIcon
   },
   data() {
     return {
