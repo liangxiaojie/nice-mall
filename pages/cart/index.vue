@@ -1,6 +1,6 @@
 <template>
   <div class="container">
-    <cartHeader />
+    <appHeader title="购物车" />
     <cartGoodsList :items="goods" />
     <div class="divider_line"></div>
     <cartFooter />
@@ -9,14 +9,14 @@
 </template>
 
 <script>
-import cartHeader from '~/components/cartHeader'
+import appHeader from '~/components/appHeader'
 import cartGoodsList from '~/components/cartGoodsList'
 import cartFooter from '~/components/cartFooter'
 import appFooter from '~/components/appFooter'
 
 export default {
   components: {
-    cartHeader,
+    appHeader,
     cartGoodsList,
     cartFooter,
     appFooter

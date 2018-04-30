@@ -1,19 +1,21 @@
 <template>
   <div class="good-list">
     <div class="item" v-for="(item, key) in items" :key="key">
-      <div class="good-image">
-        <img :src="item.imgSrc" />
-      </div>
-      <div class="good-info">
-        <p class="good-title">{{item.title}}</p>
-        <p class="good-discription">{{item.discription}}</p>
-        <div class="flex-row">
-          <div class="price">
-            ¥{{item.price.toFixed(2)}} <s class="old">¥{{item.priceOld.toFixed(2)}}</s>
-          </div>
-          <div class="sales">{{item.sales}}人已购</div>
+      <nuxt-link :to="`/mall/${item._id}`">
+        <div class="good-image">
+          <img :src="item.imgSrc" />
         </div>
-      </div>
+        <div class="good-info">
+          <p class="good-title">{{item.title}}</p>
+          <p class="good-discription">{{item.discription}}</p>
+          <div class="flex-row">
+            <div class="price">
+              ¥{{item.price.toFixed(2)}} <s class="old">¥{{item.priceOld.toFixed(2)}}</s>
+            </div>
+            <div class="sales">{{item.sales}}人已购</div>
+          </div>
+        </div>
+      </nuxt-link>
     </div>
   </div>
 </template>
@@ -33,7 +35,7 @@ export default {
 
 <style lang="scss" scoped>
 .good-list {
-  .item {
+  .item > a {
     display: flex;
     align-items: center;
     border-bottom: .01rem solid rgb(235, 235, 235);

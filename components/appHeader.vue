@@ -4,10 +4,8 @@
       <div class="header-left">
         <fa-icon class="header-icon" icon="chevron-left" @click="goBack" />
       </div>
-      <div class="header-title">购物车</div>
-      <div class="header-right">
-        <fa-icon class="header-icon" icon="user" />
-      </div>
+      <div class="header-title">{{title}}</div>
+      <div class="header-right"></div>
     </div>
   </header>
 </template>
@@ -15,6 +13,9 @@
 <script>
 export default {
   props: {
+    title: {
+      type: String
+    }
   },
   mounted() {
 
@@ -51,20 +52,18 @@ export default {
     color: rgba(0,0,0,.6);
     font-size: .16rem;
   }
-  .header-icon {
-    display: block;
-    &.el-icon-search {
-      padding: .08rem;
-      font-size: .16rem;
-      color: rgba(0,0,0,.3);
-    }
-    &.svg-inline--fa {
-      width: .16rem;
-      height: .16rem;
-      color: #999;
-      margin: 0 .15rem 0 .15rem;
-    }
+}
+.header-icon {
+  display: block;
+  &.svg-inline--fa {
+    width: .16rem;
+    height: .16rem;
+    color: #999;
+    margin: 0 .15rem 0 .15rem;
   }
+}
+.header-right {
+  width: .46rem;
 }
 </style>
 
