@@ -27,13 +27,21 @@ export default {
     this.$nextTick(function(){
       var mySwiper = new Swiper(this.$refs.gallery, {
       pagination: {
-        el: this.$refs.galleryPagination
+        el: this.$refs.galleryPagination,
+        clickable: true,
       },
       preloadImages: false,
       lazy: {
         loadPrevNext: true,
       },
       loop: true,
+      observer:true,
+      observeParents:true,
+      centeredSlides: true,
+      autoplay: {
+        delay: 3000,
+        disableOnInteraction: false,
+      },
     });
     })
   },
