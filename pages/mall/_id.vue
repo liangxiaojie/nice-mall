@@ -11,7 +11,17 @@
         </div>
         <div class="sales">{{goods.sales}}人已购</div>
         <rater v-model="goods.mark" active-color="#ff9900" disabled></rater> {{goods.mark.toFixed(1)}}分
-        <span>快递：{{expressFee.toFixed(2)}}</span>
+        <span>快递费：{{goods.expressFee.toFixed(2)}}</span>
+        <p>
+          说明：
+            <span><img src="/images/icon-check.png">正品保证</span>
+            <span><img src="/images/icon-flash.png">极速退款</span>
+            <span><img src="/images/icon-seven.png">七天退换</span>
+        </p>
+        <div>领取产品专用券</div>
+        <div>选择颜色 分类</div>
+        <div>用户评价</div>
+        <div>产品详情</div>
       </div>
     </div>
   </div>
