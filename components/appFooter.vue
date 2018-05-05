@@ -28,6 +28,8 @@ export default {
 
 
 <style lang="scss" scoped>
+@import '~/assets/variables.scss';
+
 .app-footer {
   position: fixed;
   z-index: 999;
@@ -52,7 +54,7 @@ export default {
       color: #999;
       text-decoration: none;
       &.nuxt-link-active {
-        color: #ff6700;
+        color: $primary-color;
       }
       .footer-icon {
         display: block;

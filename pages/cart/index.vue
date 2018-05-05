@@ -87,5 +87,6 @@ export default {
 .container {
   margin-top: .45rem;
   padding-bottom: 1.01rem;
+  background-color: #fff;
 }
 </style>

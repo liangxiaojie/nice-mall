@@ -56,6 +56,8 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+@import '~/assets/variables.scss';
+
 .footer {
   position: fixed;
   width: 3.75rem;
@@ -91,7 +93,7 @@ export default {
   height: 100%;
   font-size: .16rem;
   color: rgba(255,255,255,.9);
-  background-color: rgb(237, 91, 0);
+  background-color: $primary-color;
 }
 </style>
 

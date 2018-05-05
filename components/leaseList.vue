@@ -42,7 +42,10 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+@import '~/assets/variables.scss';
+
 .lease-list {
+  background-color: #fff;
   .item {
     padding: .1rem;
     border-bottom: .01rem solid rgb(235, 235, 235);
@@ -66,7 +69,7 @@ export default {
   color: rgba(0,0,0,.87);
 }
 .lease-discription {
-  color: rgba(0,0,0,.54);
+  color: $primary-color;
 }
 .price {
   text-align: right;

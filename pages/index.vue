@@ -140,13 +140,16 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+@import '~/assets/variables.scss';
+
 .container {
   padding-bottom: .56rem;
+  background-color: #fff;
 }
 .title {
   font-size: .16rem;
   padding: .1rem .2rem;
-  color: rgba(0,0,0,.6);
+  color: $primary-color;
   border-bottom: .01rem solid rgb(235, 235, 235);
 }
 .more {

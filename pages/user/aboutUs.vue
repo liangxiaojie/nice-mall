@@ -17,20 +17,21 @@ import appHeader from '~/components/appHeader'
 export default {
   components: {
     appHeader,
-  },
-  data() {
-    return {
-    }
   }
 }
 </script>
 
 <style lang="scss" scoped>
+@import '~/assets/variables.scss';
+
 .container {
   margin-top: .45rem;
   img {
     width: 100%;
     max-width: 100%;
+  }
+  /deep/ .weui-cell__ft {
+    color: $primary-color;
   }
 }
 .about-footer {

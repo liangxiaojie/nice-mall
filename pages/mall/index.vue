@@ -1,6 +1,6 @@
 <template>
   <div class="container">
-    <tab :line-width=2 active-color='#ff6700' v-model="activeIndex">
+    <tab :line-width=2 active-color='#33bfb5' v-model="activeIndex">
       <tab-item class="vux-center">产品</tab-item>
       <tab-item class="vux-center">服务</tab-item>
     </tab>

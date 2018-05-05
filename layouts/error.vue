@@ -16,7 +16,9 @@ export default {
 }
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
+@import '~/assets/variables.scss';
+
 .container {
   position: fixed;
   left: 0;
@@ -45,7 +47,7 @@ h4 {
   font-weight: normal;
 }
 .back {
-  color: #ff6700;
+  color: $primary-color;
   text-decoration: none;
   font-size: .16rem;
 }

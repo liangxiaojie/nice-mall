@@ -9,11 +9,11 @@
       </div>
     </div>
     <div class="divider_line"></div>
-    <tab :line-width=2 active-color='#ff6700' v-model="activeIndex">
+    <tab :line-width=2 active-color='#33bfb5' v-model="activeIndex">
       <tab-item class="vux-center">租赁订单</tab-item>
       <tab-item class="vux-center">购物订单</tab-item>
     </tab>
-    <swiper v-model="activeIndex" :show-dots="false">
+    <swiper class="tab-content" v-model="activeIndex" :show-dots="false">
       <swiper-item>
         <flexbox>
           <flexbox-item>
@@ -83,7 +83,6 @@
         <img slot="icon" class="cell-icon" src="/images/user/icon-info.png" />
       </cell>
     </group>
-    <div class="divider_line"></div>
     <app-footer />
   </div>
 </template>
@@ -123,6 +122,7 @@ export default {
   justify-content: space-between;
   align-items: center;
   padding: .3rem .2rem;
+  background-color: #fff;
 }
 .login {
   width: 1.8rem;
@@ -138,6 +138,9 @@ export default {
   img {
     width: 100%;
   }
+}
+.tab-content {
+  background-color: #fff;
 }
 .nav-item {
   display: flex;

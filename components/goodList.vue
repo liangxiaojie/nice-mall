@@ -35,6 +35,7 @@ export default {
 
 <style lang="scss" scoped>
 .good-list {
+  background-color: #fff;
   .item > a {
     display: flex;
     align-items: center;

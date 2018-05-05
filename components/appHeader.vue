@@ -29,6 +29,8 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+@import '~/assets/variables.scss';
+
 .header {
   position: fixed;
   width: 3.75rem;
@@ -36,7 +38,8 @@ export default {
   left: auto;
   right: auto;
   z-index: 99;
-  background: #f2f2f2;
+  background: $primary-color;
+  color: #fff;
   .header-wrapper {
     display: flex;
     align-items: center;
@@ -49,7 +52,6 @@ export default {
     align-items: center;
     text-align: center;
     width: 100%;
-    color: rgba(0,0,0,.6);
     font-size: .16rem;
   }
 }
@@ -58,7 +60,6 @@ export default {
   &.svg-inline--fa {
     width: .16rem;
     height: .16rem;
-    color: #999;
     margin: 0 .15rem 0 .15rem;
   }
 }
