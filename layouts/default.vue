@@ -34,11 +34,14 @@ html {
   margin: 0;
 }
 
+body {
+  background-color: rgb(245, 245, 245);
+}
+
 .warp-container {
   position: relative;
   height: 100%;
   font-size: .12rem;
-  padding-bottom: .56rem;
   margin: 0 auto;
 }
 

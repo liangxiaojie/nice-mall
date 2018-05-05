@@ -140,6 +140,9 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.container {
+  padding-bottom: .56rem;
+}
 .title {
   font-size: .16rem;
   padding: .1rem .2rem;

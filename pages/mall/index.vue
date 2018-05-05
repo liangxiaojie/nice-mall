@@ -136,6 +136,7 @@ export default {
 
 <style lang="scss" scoped>
 .container {
+  padding-bottom: .56rem;
   /deep/ .vux-slider {
     overflow: initial;
   }

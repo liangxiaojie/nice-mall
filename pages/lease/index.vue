@@ -49,6 +49,9 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.container {
+  padding-bottom: .56rem;
+}
 .lease-header {
   img {
     width: 100%;

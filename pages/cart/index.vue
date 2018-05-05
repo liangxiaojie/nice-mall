@@ -86,6 +86,6 @@ export default {
 <style lang="scss" scoped>
 .container {
   margin-top: .45rem;
-  padding-bottom: .45rem;
+  padding-bottom: 1.01rem;
 }
 </style>
