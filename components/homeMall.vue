@@ -2,11 +2,13 @@
   <div class="swiper-container" ref="homeMallGallery">
     <div class="swiper-wrapper">
       <div class="swiper-slide" v-for="(item, key) in items" :key="key">
-        <img :src="item.imgSrc" />
-        <p class="good-title">{{item.title}}</p>
-        <p class="price">
-          ¥{{item.price}} <s class="old">¥{{item.priceOld}}</s>
-        </p>
+        <nuxt-link :to="`/mall/${item._id}`">
+          <img :src="item.imgSrc" />
+          <p class="good-title">{{item.title}}</p>
+          <p class="price">
+            ¥{{item.price}} <s class="old">¥{{item.priceOld}}</s>
+          </p>
+        </nuxt-link>
       </div>
     </div>
   </div>
@@ -54,6 +56,7 @@ export default {
 }
 .good-title {
   min-height: .5rem;
+  color: rgba(0,0,0,.87);
 }
 .price {
   color: #ea625b;
