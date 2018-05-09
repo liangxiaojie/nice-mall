@@ -1,8 +1,6 @@
 query getGoodses {
-  goodses {
+  goodses(first: 5) {
     _id
-    imgSrc
-    title
     discription
     price
     priceOld
