@@ -1,6 +1,6 @@
 <template>
   <div class="container">
-    <gallery :items="galleryItems" />
+    <gallery v-if="gallerys && gallerys.length > 0" :items="gallerys" />
     <Search
       auto-scroll-to-top
       @on-submit="onSubmit"
@@ -28,6 +28,7 @@
 </template>
 
 <script>
+import { mapGetters } from 'vuex'
 import { Search } from 'vux'
 import homeHeader from '~/components/homeHeader'
 import gallery from '~/components/gallery'
@@ -47,28 +48,15 @@ export default {
     appFooter
   },
   computed: {
+    ...mapGetters([
+      'gallerys'
+    ]),
     goodses() {
       return this.$store.state.goodses
     }
   },
   data() {
     return {
-      galleryItems: [{
-        imgSrc: 'http://hhfanyi.com/uploads/20171230/7aaa052b07d2ef2df1241c851df5ec48.jpg',
-        linkUrl: ''
-      }, {
-        imgSrc: 'http://hhfanyi.com/uploads/20171228/ec25f6b10aac77168298b1e2acb661e4.jpg',
-        linkUrl: 'https://mp.weixin.qq.com/s/_jzqa-FFZpqwkL681QgbiQ'
-      }, {
-        imgSrc: 'http://hhfanyi.com/uploads/20171228/2845c37d39f4119937a4539f2480b5ec.jpg',
-        linkUrl: 'http://mp.weixin.qq.com/s/wa4rqqfJ-9YPCx-rq5wY3A'
-      }, {
-        imgSrc: 'http://hhfanyi.com/uploads/20171229/523c80900dd6be07b3270310295b0acb.jpg',
-        linkUrl: ''
-      }, {
-        imgSrc: 'http://hhfanyi.com/uploads/20171230/85de1bfbefcb397b2caea08101b885a1.jpg',
-        linkUrl: ''
-      }],
       // goodses: [{
       //   imgSrc: 'http://hhfanyi.com/uploads/20180125/4b3ac5f3522e44a577b6125d842ac6ad.png',
       //   title: 'Apple iMac 21.5英寸一体机',
@@ -126,9 +114,13 @@ export default {
     }
   },
   mounted() {
+    this.getGallerys()
     this.getGoodses()
   },
   methods: {
+    getGallerys() {
+      this.$store.dispatch('getGallerys');
+    },
     getGoodses() {
       this.$store.dispatch('getGoodses');
     },
