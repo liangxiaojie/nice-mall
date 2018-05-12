@@ -113,6 +113,7 @@ export default {
 
 <style lang="scss" scoped>
 .container {
+  padding-bottom: .56rem;
   /deep/ .vux-swiper {
     height: .8rem !important;
   }

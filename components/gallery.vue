@@ -2,7 +2,7 @@
   <div class="swiper-container" ref="gallery">
     <div class="swiper-wrapper">
       <div class="swiper-slide" v-for="(item, index) in items" :key="index" @click="go(item.linkUrl)">
-        <img class="swiper-lazy" :data-src="item.imgSrc" />
+        <img class="swiper-lazy" :data-src="item.imgSrc || item" />
         <div class="swiper-lazy-preloader"></div>
       </div>
     </div>
@@ -47,7 +47,7 @@ export default {
   },
   methods: {
     go(linkUrl) {
-      window.location.href = linkUrl || '#'
+      if (linkUrl) window.location.href = linkUrl
     }
   }
 }
@@ -56,6 +56,7 @@ export default {
 <style lang="scss" scoped>
 .swiper-container {
   width: 100%;
+  background-color: #fff;
   .swiper-slide {
     display: flex;
     flex-wrap: wrap;
