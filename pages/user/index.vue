@@ -76,10 +76,10 @@
       <cell title="我的押金" link="/user/deposit">
         <img slot="icon" class="cell-icon" src="/images/user/icon-deposit.png" />
       </cell>
-      <cell title="收货地址" link="/user/address">
+      <cell title="收货地址" link="/address">
         <img slot="icon" class="cell-icon" src="/images/user/icon-address.png" />
       </cell>
-      <cell title="关于我们" link="/user/aboutUs">
+      <cell title="关于我们" link="/aboutUs">
         <img slot="icon" class="cell-icon" src="/images/user/icon-info.png" />
       </cell>
     </group>
