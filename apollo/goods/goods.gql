@@ -1,0 +1,9 @@
+query getGoods ($_id: ID!) {
+  goods (_id: $_id) {
+    _id
+    discription
+    price
+    priceOld
+    sales
+  }
+}

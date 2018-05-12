@@ -10,8 +10,8 @@
           ¥{{goods.price.toFixed(2)}} <s class="old">原价 ¥{{goods.priceOld.toFixed(2)}}</s>
         </div>
         <div class="sales">{{goods.sales}}人已购</div>
-        <rater v-model="goods.mark" active-color="#ff9900" disabled></rater> {{goods.mark.toFixed(1)}}分
-        <span>快递费：{{goods.expressFee.toFixed(2)}}</span>
+        <rater v-model="goods.mark" active-color="#ff9900" disabled></rater> {{goods.mark && goods.mark.toFixed(1)}}分
+        <span>快递费：{{goods.expressFee && goods.expressFee.toFixed(2)}}</span>
         <p>
           说明：
             <span><img src="/images/icon-check.png">正品保证</span>
@@ -32,30 +32,19 @@ import appHeader from '~/components/appHeader'
 import gallery from '~/components/gallery'
 import { Rater } from 'vux'
 
+import { getGoodsById } from '~/apollo/goods'
+
 export default {
   components: {
     appHeader,
     gallery,
     Rater
   },
-  data() {
-    return {
-      goods: {
-        images: [{
-          imgSrc: 'http://hhfanyi.com/uploads/20180125/0d71d7fdbf7ca83c0781035275058674.jpg',
-          linkUrl: ''
-        }],
-        title: 'Apple iMac 21.5英寸一体机',
-        discription: '（2017新款双核Core i5 处理器/8GB内存/1TB存储）',
-        price: 7999,
-        priceOld: 8688,
-        mark: 5,
-        sales: 0,
-        expressFee: 0,
-
-      }
-    }
-  }
+  async asyncData ({ app, params }) {
+    let client = app.apolloProvider.defaultClient
+    let { goods } = await getGoodsById(client, params.id)
+    return { goods }
+  },
 }
 </script>
 
