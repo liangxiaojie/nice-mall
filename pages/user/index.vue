@@ -70,10 +70,10 @@
     </swiper>
     <div class="divider_line"></div>
     <group class="cell-group">
-      <cell title="优惠券" link="/user/coupon">
+      <cell title="优惠券" link="/coupon">
         <img slot="icon" class="cell-icon" src="/images/user/icon-coupon.png" />
       </cell>
-      <cell title="我的押金" link="/user/deposit">
+      <cell title="我的押金" link="/deposit">
         <img slot="icon" class="cell-icon" src="/images/user/icon-deposit.png" />
       </cell>
       <cell title="收货地址" link="/address">
