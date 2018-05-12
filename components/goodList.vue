@@ -6,7 +6,7 @@
           <img :src="item.imgSrc" />
         </div>
         <div class="good-info">
-          <p class="good-title">{{item.title}}</p>
+          <p class="good-title">{{item.name}}</p>
           <p class="good-discription">{{item.discription}}</p>
           <div class="flex-row">
             <div class="price">

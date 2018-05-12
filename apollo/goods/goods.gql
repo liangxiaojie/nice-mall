@@ -1,6 +1,7 @@
 query getGoods ($_id: ID!) {
   goods (_id: $_id) {
     _id
+    imgSrc
     name
     discription
     price
