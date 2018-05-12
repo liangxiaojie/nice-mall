@@ -1,0 +1,16 @@
+query getHotLeases {
+  goodses(query: { type: 1 }, first: 2, sortBy: "sales") {
+    _id
+    imgSrc
+    name
+    discription
+    price
+    priceUnit {
+      type
+      displayName
+    }
+    priceOld
+    sales
+    mark
+  }
+}

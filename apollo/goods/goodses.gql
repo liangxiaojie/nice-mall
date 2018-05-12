@@ -1,6 +1,7 @@
 query getGoodses {
   goodses(first: 5) {
     _id
+    name
     discription
     price
     priceOld

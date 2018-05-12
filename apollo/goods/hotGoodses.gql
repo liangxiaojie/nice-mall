@@ -1,0 +1,11 @@
+query getHotGoodses {
+  goodses(query: { type: 0 }, first: 6, sortBy: "sales") {
+    _id
+    imgSrc
+    name
+    discription
+    price
+    priceOld
+    sales
+  }
+}

@@ -4,7 +4,7 @@
       <div class="swiper-slide" v-for="(item, key) in items" :key="key">
         <nuxt-link :to="`/mall/${item._id}`">
           <img :src="item.imgSrc" />
-          <p class="good-title">{{item.title}}</p>
+          <p class="good-title">{{item.name}}</p>
           <p class="price">
             ¥{{item.price}} <s class="old">¥{{item.priceOld}}</s>
           </p>

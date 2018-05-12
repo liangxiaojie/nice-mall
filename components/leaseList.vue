@@ -5,14 +5,14 @@
         <div class="lease-image">
           <img :src="item.imgSrc" />
         </div>
-        <p class="lease-title">{{item.title}}</p>
+        <p class="lease-title">{{item.name}}</p>
         <p class="lease-discription">{{item.discription}}</p>
-        <p class="price">
+        <div class="price">
           ¥ {{item.price.toFixed(2)}} <span class="unit">/{{item.priceUnit.displayName}}</span>
-        </p>
+        </div>
         <div class="lease-marks">
           <div class="mark">
-            <rater v-model="item.mark" active-color="#ff9900" disabled></rater> {{item.mark.toFixed(1)}}分
+            <rater :value="item.mark" active-color="#ff9900" disabled></rater> {{item.mark.toFixed(1)}}分
           </div>
           <div class="sales">{{item.sales}}人已租</div>
         </div>
