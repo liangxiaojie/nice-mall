@@ -32,14 +32,19 @@
         芝麻信用：<a href="/deposit"><span style="color:#999">芝麻信用分750以上可免押金</span></a>
       </div>
     </div>
+    <div class="calendar-container">
+      <group>
+        <calendar @on-change="onChange" v-model="leaseEndTime" title="请选择租赁结束日期" show-popup-header popup-header-title="请选择租赁结束日期" disable-past></calendar>
+      </group>
+    </div>
     <div class="divider_line"></div>
     <div class="title">用户评价</div>
     <div class="divider_line"></div>
     <div class="title">产品详情</div>
     <div class="details" v-html="lease.details"></div>
-    <div class="lease-footer">
-      <a class="footer-button" href="tel:0551-62887811">联系客服</a>
-      <div class="footer-button invert">我要租用</div>
+    <div class="app-footer-container">
+      <a class="app-footer-button" href="tel:0551-62887811">联系客服</a>
+      <div class="app-footer-button invert" @click="handleLease">我要租用</div>
     </div>
   </div>
 </template>
@@ -47,7 +52,7 @@
 <script>
 import appHeader from '~/components/appHeader'
 import gallery from '~/components/gallery'
-import { Rater } from 'vux'
+import { Rater, Calendar, Group, Toast } from 'vux'
 
 import { getLeaseById } from '~/apollo/goods'
 
@@ -55,13 +60,40 @@ export default {
   components: {
     appHeader,
     gallery,
-    Rater
+    Rater,
+    Calendar,
+    Group,
+    Toast
   },
   async asyncData ({ app, params }) {
     let client = app.apolloProvider.defaultClient
     let { lease } = await getLeaseById(client, params.id)
     return { lease }
   },
+  data() {
+    return {
+      leaseEndTime: undefined
+    }
+  },
+  methods: {
+    onChange() {
+
+    },
+    handleLease() {
+      if (!this.leaseEndTime) {
+        this.$vux.toast.text('请选择租赁结束时间');
+      } else {
+        const orderInfo = {
+          cartGoodses: [{
+            goods: this.lease,
+            leaseEndTime: this.leaseEndTime
+          }],
+        }
+        this.$store.commit('confirmOrder', orderInfo);
+        this.$router.push('/order/confirmOrder');
+      }
+    }
+  }
 }
 </script>
 
@@ -148,29 +180,6 @@ export default {
   max-width: 100%;
   /deep/ img {
     max-width: 100%;
-  }
-}
-
-.lease-footer {
-  position: fixed;
-  bottom: 0;
-  left: auto;
-  right: auto;
-  width: 3.75rem;
-  display: flex;
-  justify-content: space-between;
-  box-shadow: 0 0 .03rem #ddd;
-}
-.footer-button {
-  width: 50%;
-  text-align: center;
-  padding: .12rem 0;
-  background-color: #fff;
-  color: $primary-color;
-  font-size: .16rem;
-  &.invert {
-    background-color: $primary-color;
-    color: #fff;
   }
 }
 </style>
