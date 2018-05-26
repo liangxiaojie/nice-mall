@@ -1,50 +1,44 @@
 <template>
   <div class="container">
     <appHeader title="商品详情" />
-    <gallery :items="goods.images" />
-    <div class="goods-info">
-      <p class="title">{{goods.title}}</p>
-      <p class="discription">{{goods.discription}}</p>
-      <div class="flex-row">
-        <div class="price">
-          ¥{{goods.price.toFixed(2)}} <s class="old">原价 ¥{{goods.priceOld.toFixed(2)}}</s>
-        </div>
-        <div class="sales">{{goods.sales}}人已购</div>
-        <rater v-model="goods.mark" active-color="#ff9900" disabled></rater> {{goods.mark && goods.mark.toFixed(1)}}分
-        <span>快递费：{{goods.expressFee && goods.expressFee.toFixed(2)}}</span>
-        <p>
-          说明：
-            <span><img src="/images/icon-check.png">正品保证</span>
-            <span><img src="/images/icon-flash.png">极速退款</span>
-            <span><img src="/images/icon-seven.png">七天退换</span>
-        </p>
-        <div>领取产品专用券</div>
-        <div>选择颜色 分类</div>
-        <div>用户评价</div>
-        <div>产品详情</div>
-      </div>
+    <goods :data="goods">
+      <group>
+        <cell title="领取产品专用券" is-link></cell>
+        <cell title="选择颜色 分类" is-link></cell>
+      </group>
+    </goods>
+    <div class="app-footer-container">
+      <a class="app-footer-button" href="tel:0551-62887811">联系客服</a>
+      <div class="app-footer-button split" @click="handlePlaceOrder">加入购物车</div>
+      <div class="app-footer-button invert" @click="handlePlaceOrder">立即下单</div>
     </div>
   </div>
 </template>
 
 <script>
+import { Group, Cell, Toast } from 'vux'
 import appHeader from '~/components/appHeader'
-import gallery from '~/components/gallery'
-import { Rater } from 'vux'
+import goods from '~/components/goods'
 
 import { getGoodsById } from '~/apollo/goods'
 
 export default {
   components: {
     appHeader,
-    gallery,
-    Rater
+    goods,
+    Group,
+    Cell,
   },
   async asyncData ({ app, params }) {
     let client = app.apolloProvider.defaultClient
     let { goods } = await getGoodsById(client, params.id)
     return { goods }
   },
+  methods: {
+    handlePlaceOrder() {
+
+    }
+  }
 }
 </script>
 

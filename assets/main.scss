@@ -101,6 +101,9 @@
   color: $primary-color;
   font-size: .16rem;
   flex-grow: 1;
+  &.split {
+    border-left: .01rem solid #ddd;
+  }
   &.invert {
     background-color: $primary-color;
     color: #fff;

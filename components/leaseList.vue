@@ -2,19 +2,21 @@
   <div class="lease-list">
     <div class="item" v-for="(item, key) in items" :key="key">
       <nuxt-link :to="`/lease/${item._id}`">
-        <div class="lease-image">
-          <img :src="item.imgSrc" />
-        </div>
-        <p class="lease-title">{{item.name}}</p>
-        <p class="lease-discription">{{item.discription}}</p>
-        <div class="price">
-          ¥ {{item.price.toFixed(2)}} <span class="unit">/{{item.priceUnit.displayName}}</span>
-        </div>
-        <div class="lease-marks">
-          <div class="mark">
-            <rater :value="item.mark" active-color="#ff9900" disabled></rater> {{item.mark.toFixed(1)}}分
+        <div>
+          <div class="lease-image">
+            <img :src="item.imgSrc" />
           </div>
-          <div class="sales">{{item.sales}}人已租</div>
+          <p class="lease-title">{{item.name}}</p>
+          <p class="lease-discription">{{item.discription}}</p>
+          <div class="price">
+            ¥ {{item.price.toFixed(2)}} <span class="unit">/{{item.priceUnit.displayName}}</span>
+          </div>
+          <div class="lease-marks">
+            <div class="mark">
+              <rater :value="item.mark" active-color="#ff9900" disabled></rater> {{item.mark.toFixed(1)}}分
+            </div>
+            <div class="sales">{{item.sales}}人已租</div>
+          </div>
         </div>
       </nuxt-link>
     </div>
