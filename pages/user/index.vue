@@ -2,7 +2,7 @@
   <div class="container">
     <div class="avatar-container">
       <div class="login">
-        <img src="/images/login-weixin.png" />
+        <img src="/images/login-weixin.png" @click="userWxLogin" />
       </div>
       <div class="avatar">
         <img src="/images/avatar.png" />
@@ -106,6 +106,12 @@ export default {
   data: function() {
     return {
       activeIndex: 0
+    }
+  },
+  methods: {
+    async userWxLogin() {
+      const { url } = await this.$axios.$post('/api/auth/wxLogin', {successUrl: window.location.href});
+      window.location.href = url;
     }
   }
 }

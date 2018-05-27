@@ -2,6 +2,8 @@ const pkg = require('./package')
 const path = require('path')
 const vuxLoader = require('vux-loader')
 
+const API_URL = process.env.API_URL || 'http://localhost:7001'
+
 module.exports = {
   mode: 'universal',
 
@@ -21,7 +23,7 @@ module.exports = {
   },
 
   env: {
-    API_SERVICE_URL: process.env.API_SERVICE_URL || 'http://localhost:7001'
+    API_URL
   },
 
   /*
@@ -65,6 +67,10 @@ module.exports = {
   */
   axios: {
     // See https://github.com/nuxt-community/axios-module#options
+    proxy: true
+  },
+  proxy: {
+    '/api/': API_URL
   },
   apollo: {
     clientConfigs: {
