@@ -110,8 +110,10 @@ export default {
   },
   methods: {
     async userWxLogin() {
-      const { url } = await this.$axios.$post('/api/auth/wxLogin', {successUrl: window.location.href});
-      window.location.href = url;
+      const { success, data } = await this.$axios.$post('/api/auth/wxLogin', {successUrl: window.location.href});
+      if (success) {
+        window.location.href = data.url;
+      }
     }
   }
 }
