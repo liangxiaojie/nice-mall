@@ -30,7 +30,7 @@ export default {
     }
   },
   getters: {
-    user: state => state.user,
+    user: state => state.wxUserinfo,
     orderInfo: state => state.orderInfo
   }
 }
