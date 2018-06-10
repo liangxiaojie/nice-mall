@@ -8,7 +8,7 @@
         <img src="/images/login-weixin.png" @click="userWxLogin" />
       </div>
       <div class="avatar">
-        <img :src="user.headimgurl || '/images/avatar.png'" />
+        <img :src="(user && user.headimgurl) || '/images/avatar.png'" />
       </div>
     </div>
     <div class="divider_line"></div>
