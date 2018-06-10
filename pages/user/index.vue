@@ -1,11 +1,14 @@
 <template>
   <div class="container">
     <div class="avatar-container">
-      <div class="login">
+      <div v-if="user" class="login">
+        {{ user.nickname }}
+      </div>
+      <div v-else class="login">
         <img src="/images/login-weixin.png" @click="userWxLogin" />
       </div>
       <div class="avatar">
-        <img src="/images/avatar.png" />
+        <img :src="user.headimgurl || '/images/avatar.png'" />
       </div>
     </div>
     <div class="divider_line"></div>
@@ -90,6 +93,7 @@
 <script>
 import { Tab, TabItem, Swiper, SwiperItem, Group, Cell, Flexbox, FlexboxItem } from 'vux'
 import appFooter from '~/components/appFooter'
+import { mapGetters } from 'vuex'
 
 export default {
   components: {
@@ -107,6 +111,9 @@ export default {
     return {
       activeIndex: 0
     }
+  },
+  computed: {
+    ...mapGetters([user])
   },
   methods: {
     async userWxLogin() {

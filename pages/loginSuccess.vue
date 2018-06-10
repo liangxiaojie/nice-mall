@@ -5,8 +5,8 @@
 
 <script>
 export default {
-  async create() {
-    const { code, state } = this.$route.params
+  async mounted() {
+    const { code, state } = this.$route.query
     const { userinfo } = await this.$axios.$post('/api/auth/wxUserinfo', {code});
     this.$store.commit('userLogin', userinfo)
     this.$route.push(state)
