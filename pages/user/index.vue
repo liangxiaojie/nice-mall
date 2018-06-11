@@ -113,7 +113,7 @@ export default {
     }
   },
   computed: {
-    ...mapGetters([user])
+    ...mapGetters(['user'])
   },
   methods: {
     async userWxLogin() {
