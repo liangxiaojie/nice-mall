@@ -1,5 +1,5 @@
 query getLeases {
-  goodses(query: { type: 1 }, first: 10) {
+  goodses(query: { type: 1 }, first: 0) {
     _id
     imgSrc
     name

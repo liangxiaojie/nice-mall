@@ -1,5 +1,5 @@
 query getGoodses {
-  goodses(first: 5) {
+  goodses(first: 0) {
     _id
     imgSrc
     name
