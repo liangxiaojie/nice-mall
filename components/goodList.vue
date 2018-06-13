@@ -10,7 +10,7 @@
           <p class="good-discription">{{item.discription}}</p>
           <div class="flex-row">
             <div class="price">
-              ¥{{item.price.toFixed(2)}} <s class="old">¥{{item.priceOld.toFixed(2)}}</s>
+              ¥{{item.price && item.price.toFixed(2)}} <s class="old">¥{{item.priceOld && item.priceOld.toFixed(2)}}</s>
             </div>
             <div class="sales">{{item.sales}}人已购</div>
           </div>
