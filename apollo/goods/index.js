@@ -23,9 +23,10 @@ export async function getHotLeases(client) {
   return { hotLeases: goodses };
 }
 
-export async function getGoodses(client) {
+export async function getGoodses(client, query = { type: 0 }) {
   const {data} = await client.query({
-    query: goodses
+    query: goodses,
+    variables: query
   })
   return data;
 }

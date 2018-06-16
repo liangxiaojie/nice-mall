@@ -1,9 +1,9 @@
 <template>
   <div class="box-group">
-    <a class="nav-item">
+    <nuxt-link class="nav-item" :to="`/mall/zeroMall`">
       <img class="nav-icon" src="/images/boxGroup/shopping@2x.png" />
       <span>0元购物</span>
-    </a>
+    </nuxt-link>
     <a class="nav-item">
       <img class="nav-icon" src="/images/boxGroup/grantAuth@2x.png" />
       <span>芝麻授权</span>
@@ -31,6 +31,7 @@ export default {
     display: block;
     flex: 1 1 auto;
     text-align: center;
+    color: #999;
     .nav-icon {
       display: block;
       width: .3rem;
