@@ -89,7 +89,7 @@ module.exports = {
       // swiper
       config.module.rules.push({
         test: /\.js$/,
-        include: /node_modules\/(dom7|swiper)\/.*/,
+        include: [/node_modules\/(dom7|swiper)\/.*/, /node_modules\/vux\/.*/],
         loader: 'babel-loader',
         options: this.getBabelOptions({ isServer: !ctx.isClient })
       })
