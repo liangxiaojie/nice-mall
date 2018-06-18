@@ -1,0 +1,20 @@
+mutation createDeliveryAddress(
+  $consignee: String!,
+  $phone_number: String!,
+  $address: String!,
+  $is_default: Boolean
+  ) {
+  createDeliveryAddress(input: {
+    consignee: $consignee,
+    phone_number: $phone_number,
+    address: $address,
+    is_default: $is_default
+  }) {
+    _id
+    user_id
+    consignee
+    phone_number
+    address
+    is_default
+  }
+}

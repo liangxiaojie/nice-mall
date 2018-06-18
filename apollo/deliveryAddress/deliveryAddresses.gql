@@ -1,0 +1,9 @@
+query getDeliveryAddresses {
+  deliveryAddresses {
+    _id
+    consignee
+    phone_number
+    address
+    is_default
+  }
+}
