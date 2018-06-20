@@ -93,7 +93,7 @@
 <script>
 import { Tab, TabItem, Swiper, SwiperItem, Group, Cell, Flexbox, FlexboxItem } from 'vux'
 import appFooter from '~/components/appFooter'
-import { mapGetters } from 'vuex'
+import { mapGetters, mapActions } from 'vuex'
 
 export default {
   components: {
@@ -115,7 +115,11 @@ export default {
   computed: {
     ...mapGetters(['user'])
   },
+  async mounted() {
+    if (!this.user) await this.getWxUserinfo()
+  },
   methods: {
+    ...mapActions(['getWxUserinfo']),
     async userWxLogin() {
       const successUrl = window.location.pathname
       const { success, data } = await this.$axios.$post('/api/auth/wxLogin', {successUrl});

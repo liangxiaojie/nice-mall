@@ -1,3 +1,5 @@
+import { getWxUserinfo } from '~/apollo/wxUser'
+
 export default {
   state() {
     return {
@@ -14,19 +16,16 @@ export default {
     }
   },
   actions: {
-    async getUserinfo({ commit, state }) {
-      const user = await this.$axios.$get('https://api.weixin.qq.com/sns/userinfo?access_token=ACCESS_TOKEN&openid=OPENID&lang=zh_CN')
-      commit('userLogin', {
-        "openid":" OPENID",
-        "nickname": NICKNAME,
-        "sex":"1",
-        "province":"PROVINCE",
-        "city":"CITY",
-        "country":"COUNTRY",
-        "headimgurl": "http://thirdwx.qlogo.cn/mmopen/g3MonUZtNHkdmzicIlibx6iaFqAc56vxLSUfpb6n5WKSYVY0ChQKkiaJSgQ1dZuTOgvLLrhJbERQQ4eMsv84eavHiaiceqxibJxCfHe/46",
-        "privilege":[ "PRIVILEGE1", "PRIVILEGE2"],
-        "unionid": "o6_bmasdasdsad6_2sgVt7hMZOPfL"
-      })
+    async getWxUserinfo({ commit, state }, code) {
+      const client = this.app.apolloProvider.defaultClient
+      try {
+        const { userinfo } = await getWxUserinfo(client, code)
+        commit('userLogin', userinfo)
+      } catch (error) {
+        if (error.statusCode === '401') {
+          commit('userLogin', null)
+        }
+      }
     }
   },
   getters: {
