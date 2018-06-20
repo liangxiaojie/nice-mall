@@ -3,7 +3,10 @@ import { HttpLink } from 'apollo-link-http'
 import { InMemoryCache } from 'apollo-cache-inmemory'
 
 export default (ctx) => {
-  const httpLink = new HttpLink({ uri: `${ctx.env.API_URL}/graphql` })
+  const httpLink = new HttpLink({
+    uri: `${ctx.env.API_URL}/graphql`,
+    credentials: 'include'
+  })
 
   // middleware
   const middlewareLink = new ApolloLink((operation, forward) => {
