@@ -19,8 +19,8 @@ export default {
     async getWxUserinfo({ commit, state }, code) {
       const client = this.app.apolloProvider.defaultClient
       try {
-        const { userinfo } = await getWxUserinfo(client, code)
-        commit('userLogin', userinfo)
+        const { wxUserinfo } = await getWxUserinfo(client, code)
+        commit('userLogin', wxUserinfo)
       } catch (error) {
         if (error.statusCode === '401') {
           commit('userLogin', null)

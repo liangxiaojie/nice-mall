@@ -9,13 +9,14 @@
       <x-switch title="设为默认地址" v-model="temp.is_default"></x-switch>
     </group>
     <box gap="10px 10px">
-      <x-button type="primary" @click="handleSave">保存</x-button>
+      <x-button type="primary" @click.native="handleSave">保存</x-button>
+      <x-button v-if="pageStatus === 'update'" type="warn" plain @click.native="handleDelete">删除收货地址</x-button>
     </box>
   </div>
 </template>
 
 <script>
-import { XAddress, ChinaAddressV4Data, XButton, XInput, XTextarea, XSwitch, Box } from 'vux'
+import { XAddress, ChinaAddressV4Data, XButton, XInput, XTextarea, XSwitch, Box, Confirm } from 'vux'
 import appHeader from '~/components/appHeader'
 import { createDeliveryAddress } from '~/apollo/deliveryAddress'
 
@@ -27,7 +28,8 @@ export default {
     XInput,
     XTextarea,
     XSwitch,
-    Box
+    Box,
+    Confirm,
   },
   data () {
     return {
@@ -47,15 +49,31 @@ export default {
     }
   },
   mounted() {
-    const { deliveryAddress } = this.$route.params;
+    const { deliveryAddress } = this.$route.query;
     if (deliveryAddress) {
-      pageStatus = 'update'
+      this.pageStatus = 'update'
       this.temp = deliveryAddress
     }
   },
   methods: {
-    handleSave() {
-      createDeliveryAddress(this.$apollo, this.temp);
+    async handleSave() {
+      if (this.pageStatus === 'create') {
+        await createDeliveryAddress(this.$apollo, this.temp);
+      } else {
+
+      }
+      this.$vux.toast.show('保存成功')
+      this.$router.go(-1)
+    },
+    handleDelete() {
+      this.$vux.confirm.show({
+        title: '操作提示',
+        content: '确定要删除该地址吗？',
+        onConfirm () {
+          console.log(this.temp)
+          this.$router.go(-1)
+        }
+      })
     }
   }
 }
