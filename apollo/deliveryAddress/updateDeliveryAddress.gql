@@ -1,0 +1,21 @@
+mutation updateDeliveryAddress(
+  $_id: ID!,
+  $consignee: String!,
+  $phone_number: String!,
+  $address: String!,
+  $is_default: Boolean
+  ) {
+  updateDeliveryAddress(_id: $_id, input: {
+    consignee: $consignee,
+    phone_number: $phone_number,
+    address: $address,
+    is_default: $is_default
+  }) {
+    _id
+    user_id
+    consignee
+    phone_number
+    address
+    is_default
+  }
+}
