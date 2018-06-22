@@ -6,7 +6,7 @@
         <span>{{ item.consignee }}</span>
         <span>{{ item.phone_number }}</span>
       </div>
-      <p><span v-if="item.is_default" class="address-default">[默认]</span> {{ item.address }}</p>
+      <p><span v-if="item.is_default" class="address-default">[默认地址]</span> {{ item.address }}</p>
       <div class="actions">
         <x-button mini @click.native="handleEdit(item)">编辑</x-button>
       </div>
