@@ -18,7 +18,7 @@
 <script>
 import { XAddress, ChinaAddressV4Data, XButton, XInput, XTextarea, XSwitch, Box, Confirm } from 'vux'
 import appHeader from '~/components/appHeader'
-import { createDeliveryAddress } from '~/apollo/deliveryAddress'
+import { createDeliveryAddress, updateDeliveryAddress, deleteDeliveryAddress } from '~/apollo/deliveryAddress'
 
 export default {
   components: {
@@ -60,7 +60,7 @@ export default {
       if (this.pageStatus === 'create') {
         await createDeliveryAddress(this.$apollo, this.temp);
       } else {
-
+        await updateDeliveryAddress(this.$apollo, this.temp);
       }
       this.$vux.toast.show('保存成功')
       this.$router.go(-1)
@@ -69,8 +69,9 @@ export default {
       this.$vux.confirm.show({
         title: '操作提示',
         content: '确定要删除该地址吗？',
-        onConfirm () {
-          console.log(this.temp)
+        async onConfirm () {
+          await deleteDeliveryAddress(this.$apollo, this.temp._id);
+          this.$vux.toast.show('删除成功')
           this.$router.go(-1)
         }
       })
