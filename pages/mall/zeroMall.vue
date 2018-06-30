@@ -1,6 +1,6 @@
 <template>
 <div class="container">
-  <appHeader title="关于我们" />
+  <appHeader title="0元购" />
   <good-list :items="goodses" />
 </div>
 </template>

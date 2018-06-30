@@ -1,0 +1,16 @@
+mutation createCartGoods(
+  $number: String!,
+  $spec: String!
+  ) {
+  createCartGoods(input: {
+    number: $number,
+    spec: $spec
+  }) {
+    _id
+    goods
+    number
+    spec
+    created_time
+    updated_time
+  }
+}
