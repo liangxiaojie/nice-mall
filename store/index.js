@@ -33,7 +33,8 @@ export default {
       const data = await createOrder(client, orderInfo)
       // commit('orderInfo', orderInfo)
 
-      const { prepay: {appId, timeStamp, nonceStr, paySign, signType} } = data;
+      const prepay = data.createOrder.prepay;
+      const { appId, timeStamp, nonceStr, paySign, signType } = prepay;
 
       //调用微信JS api 支付
       function onBridgeReady() {
