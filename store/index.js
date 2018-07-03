@@ -33,12 +33,12 @@ export default {
       const data = await createOrder(client, orderInfo)
       // commit('orderInfo', orderInfo)
 
-      const { appId, timeStamp, nonceStr, paySign, signType } = data;
+      const { prepay: {appId, timeStamp, nonceStr, paySign, signType} } = data;
 
       //调用微信JS api 支付
       function onBridgeReady() {
         WeixinJSBridge.invoke('getBrandWCPayRequest', {
-          appId, timeStamp, nonceStr, package: data.package, paySign, signType
+          appId, timeStamp, nonceStr, package: prepay.package, paySign, signType
         }, function(res){
             WeixinJSBridge.log(res.err_msg);
             alert('CODE: '+res.err_code+' DESC: '+res.err_desc+' MSG: '+res.err_msg);
