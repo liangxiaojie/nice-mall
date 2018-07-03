@@ -32,6 +32,37 @@ export default {
       const client = this.app.apolloProvider.defaultClient
       const data = await createOrder(client, orderInfo)
       // commit('orderInfo', orderInfo)
+
+      const { appId, timeStamp, nonceStr, paySign, signType } = data;
+
+      //调用微信JS api 支付
+      function onBridgeReady() {
+        WeixinJSBridge.invoke('getBrandWCPayRequest', {
+          appId, timeStamp, nonceStr, package: data.package, paySign, signType
+        }, function(res){
+            WeixinJSBridge.log(res.err_msg);
+            alert('CODE: '+res.err_code+' DESC: '+res.err_desc+' MSG: '+res.err_msg);
+            if(res.err_msg == "get_brand_wcpay_request:ok" ) {
+
+            } else if(res.err_msg == 'get_brand_wcpay_request:cancel') {
+
+            } else if(res.err_msg == 'get_brand_wcpay_request:fail') {
+
+            }
+          }
+        );
+      }
+      if (typeof WeixinJSBridge == "undefined"){
+        if(document.addEventListener){
+            document.addEventListener('WeixinJSBridgeReady', onBridgeReady, false);
+        }else if (document.attachEvent){
+            document.attachEvent('WeixinJSBridgeReady', onBridgeReady);
+            document.attachEvent('onWeixinJSBridgeReady', onBridgeReady);
+        }
+      } else {
+        onBridgeReady();
+      }
+
     },
   },
   getters: {

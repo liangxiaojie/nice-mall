@@ -6,6 +6,16 @@ mutation createOrder(
     delivery_address: $deliveryAddress,
     cart_goodses: $cartGoodses
   }) {
-    _id
+    prepay {
+      appId
+      timeStamp
+      nonceStr
+      package
+      paySign
+      signType
+    }
+    order {
+      _id
+    }
   }
 }
