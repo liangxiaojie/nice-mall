@@ -38,7 +38,12 @@ export default {
   data() {
     return {
       goodses: null,
-      preview: null
+      preview: null,
+      deliveryAddress: {
+        consignee: '1',
+        phone_number: '2',
+        address: '3',
+      }
     }
   },
   mounted() {
@@ -57,6 +62,15 @@ export default {
   },
   methods: {
     handlePayment() {
+      const cartGoodses = this.orderInfo.cartGoodses.map(item => ({
+        goods_id: item.goods._id,
+        number: 1,
+      }));
+      this.$store.dispatch('wxPayUnifiedorder', {
+        deliveryAddress: this.deliveryAddress,
+        cartGoodses: cartGoodses
+      });
+
       //调用微信JS api 支付
       function onBridgeReady() {
         WeixinJSBridge.invoke('getBrandWCPayRequest', {
@@ -90,7 +104,7 @@ export default {
         onBridgeReady();
       }
 
-      this.$router.push('/');
+      // this.$router.push('/');
     }
   }
 }

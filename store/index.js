@@ -1,4 +1,5 @@
 import { getWxUserinfo } from '~/apollo/wxUser'
+import { createOrder } from '~/apollo/order'
 
 export default {
   state() {
@@ -26,7 +27,12 @@ export default {
           commit('userLogin', null)
         }
       }
-    }
+    },
+    async wxPayUnifiedorder({ commit, state }, orderInfo) {
+      const client = this.app.apolloProvider.defaultClient
+      const data = await createOrder(client, orderInfo)
+      // commit('orderInfo', orderInfo)
+    },
   },
   getters: {
     user: state => state.wxUserinfo,

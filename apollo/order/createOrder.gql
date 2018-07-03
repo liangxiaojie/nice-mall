@@ -1,0 +1,11 @@
+mutation createOrder(
+  $deliveryAddress: OrderDeliveryAddressInput!,
+  $cartGoodses: [CartGoodsInput!]!
+  ) {
+  createOrder(input: {
+    delivery_address: $deliveryAddress,
+    cart_goodses: $cartGoodses
+  }) {
+    _id
+  }
+}
