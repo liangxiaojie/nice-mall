@@ -39,7 +39,7 @@
     <div class="title">用户评价</div>
     <div class="divider_line"></div>
     <div class="title">产品详情</div>
-    <div class="details" v-html="data.details"></div>
+    <div class="details" v-html="data.detail"></div>
   </div>
 </template>
 
@@ -144,6 +144,7 @@ export default {
 }
 .details {
   max-width: 100%;
+  background-color: #fff;
   /deep/ img {
     max-width: 100%;
   }

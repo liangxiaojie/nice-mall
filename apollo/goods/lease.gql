@@ -13,6 +13,6 @@ query getGoods ($_id: ID!) {
     priceOld
     sales
     mark
-    details
+    detail
   }
 }

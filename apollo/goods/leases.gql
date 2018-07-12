@@ -12,6 +12,5 @@ query getLeases {
     priceOld
     sales
     mark
-    details
   }
 }
