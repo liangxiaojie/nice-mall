@@ -1,7 +1,6 @@
 mutation deleteDeliveryAddress($_id: ID!) {
   deleteDeliveryAddress(_id: $_id) {
     _id
-    user_id
     consignee
     phone_number
     address

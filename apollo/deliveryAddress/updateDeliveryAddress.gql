@@ -12,7 +12,6 @@ mutation updateDeliveryAddress(
     is_default: $is_default
   }) {
     _id
-    user_id
     consignee
     phone_number
     address
