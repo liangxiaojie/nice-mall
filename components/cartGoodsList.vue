@@ -12,7 +12,7 @@
         <p class="price">售价：{{item.goods.price}}</p>
         <div class="flex-row">
           <inline-x-number v-model="item.number" :min="1" />
-          <fa-icon class="icon-trash" icon="trash-alt" />
+          <fa-icon class="icon-trash" icon="trash-alt" @click="handleDelete(item)" />
         </div>
       </div>
     </div>
@@ -48,6 +48,11 @@ export default {
         goods: d.goods,
       }));
     },
+  },
+  methods: {
+    handleDelete(item) {
+      this.$store.dispatch('cartGoods/DeleteCartGoods', item._id)
+    }
   }
 }
 </script>

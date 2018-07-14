@@ -1,6 +1,7 @@
 import {
   getCartGoodses,
   createCartGoods,
+  deleteCartGoods,
 } from '~/apollo/cartGoods'
 
 export default {
@@ -20,6 +21,7 @@ export default {
       try {
         const { cartGoodses } = await getCartGoodses(client)
         commit('setCartGoodses', cartGoodses)
+        return cartGoodses
       } catch (error) {
         if (error.statusCode === '401') {
           commit('setCartGoodses', null)
@@ -32,6 +34,11 @@ export default {
         goods_id: goods._id,
         number: 1,
       })
+    },
+    async DeleteCartGoods({ commit, state, dispatch }, _id) {
+      const client = this.app.apolloProvider.defaultClient
+      const { cartGoods } = await deleteCartGoods(client, _id)
+      await dispatch('GetCartGoodses')
     },
   }
 }
