@@ -1,7 +1,7 @@
 <template>
   <div class="container">
     <appHeader title="购物车" />
-    <cartGoodsList :items="goods" />
+    <cartGoodsList :items="cartGoodses" />
     <div class="divider_line"></div>
     <cartFooter />
     <appFooter />
@@ -13,6 +13,7 @@ import appHeader from '~/components/appHeader'
 import cartGoodsList from '~/components/cartGoodsList'
 import cartFooter from '~/components/cartFooter'
 import appFooter from '~/components/appFooter'
+import { mapGetters } from 'vuex'
 
 export default {
   components: {
@@ -21,63 +22,15 @@ export default {
     cartFooter,
     appFooter
   },
-  data: function() {
-    return {
-      goods: [{
-        imgSrc: 'http://hhfanyi.com/uploads/20180124/789ac7696528ab1efe699d725d3ead62.jpg',
-        title: 'OPPO R11s 黑色（4GB+64GB）',
-        price: 2599,
-        count: 1,
-        checked: true,
-      }, {
-        imgSrc: 'http://hhfanyi.com/uploads/20180124/3778f9a1f1250b59bd899822ddc869fe.jpg',
-        title: 'OPPO R11s （金色）4G+64G',
-        price: 2599,
-        count: 1,
-        checked: true,
-      }, {
-        imgSrc: 'http://hhfanyi.com/uploads/20180124/b428d0570ddef5b74faaa28822ecd292.jpg',
-        title: 'OPPO R11s （新年红）4G+64G',
-        price: 2799,
-        count: 1,
-        checked: true,
-      }, {
-        imgSrc: 'http://hhfanyi.com/uploads/20180124/b428d0570ddef5b74faaa28822ecd292.jpg',
-        title: 'OPPO R11s （新年红）4G+64G',
-        price: 2799,
-        count: 1,
-        checked: true,
-      }, {
-        imgSrc: 'http://hhfanyi.com/uploads/20180124/b428d0570ddef5b74faaa28822ecd292.jpg',
-        title: 'OPPO R11s （新年红）4G+64G',
-        price: 2799,
-        count: 1,
-        checked: true,
-      }, {
-        imgSrc: 'http://hhfanyi.com/uploads/20180124/b428d0570ddef5b74faaa28822ecd292.jpg',
-        title: 'OPPO R11s （新年红）4G+64G',
-        price: 2799,
-        count: 1,
-        checked: true,
-      }, {
-        imgSrc: 'http://hhfanyi.com/uploads/20180124/b428d0570ddef5b74faaa28822ecd292.jpg',
-        title: 'OPPO R11s （新年红）4G+64G',
-        price: 2799,
-        count: 1,
-        checked: true,
-      }, {
-        imgSrc: 'http://hhfanyi.com/uploads/20180124/b428d0570ddef5b74faaa28822ecd292.jpg',
-        title: 'OPPO R11s （新年红）4G+64G',
-        price: 2799,
-        count: 1,
-        checked: true,
-      }, {
-        imgSrc: 'http://hhfanyi.com/uploads/20180124/b428d0570ddef5b74faaa28822ecd292.jpg',
-        title: 'OPPO R11s （新年红）4G+64G',
-        price: 2799,
-        count: 1,
-        checked: true,
-      }]
+  computed: {
+    ...mapGetters(['cartGoodses']),
+  },
+  mounted() {
+    this.getList();
+  },
+  methods: {
+    async getList() {
+      this.$store.dispatch('cartGoods/GetCartGoodses');
     }
   }
 }
@@ -86,7 +39,7 @@ export default {
 <style lang="scss" scoped>
 .container {
   margin-top: .45rem;
-  padding-bottom: 1.01rem;
+  margin-bottom: 1.01rem;
   background-color: #fff;
 }
 </style>

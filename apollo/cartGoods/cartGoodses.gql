@@ -1,7 +1,12 @@
 query getCartGoodses {
   cartGoodses {
     _id
-    goods
+    goods {
+      _id
+      imgSrc
+      name
+      price
+    }
     number
     spec
     created_time

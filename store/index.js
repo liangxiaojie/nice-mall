@@ -68,6 +68,7 @@ export default {
   },
   getters: {
     user: state => state.wxUserinfo,
-    orderInfo: state => state.orderInfo
+    orderInfo: state => state.orderInfo,
+    cartGoodses: state => state.cartGoods.cartGoodses
   }
 }

@@ -1,10 +1,5 @@
 mutation deleteCartGoods($_id: ID!) {
   deleteCartGoods(_id: $_id) {
     _id
-    goods
-    number
-    spec
-    created_time
-    updated_time
   }
 }

@@ -1,17 +1,17 @@
 <template>
   <div class="good-list">
-    <div class="item" v-for="(item, key) in items" :key="key">
+    <div class="item" v-for="(item, key) in cartGoodses" :key="key">
       <div class="checkbox-container">
         <CheckIcon :value.sync="item.checked" />
       </div>
       <div class="good-image">
-        <img :src="item.imgSrc" />
+        <img :src="item.goods.imgSrc" />
       </div>
       <div class="good-info">
-        <p class="good-title">{{item.title}}</p>
-        <p class="price">售价：{{item.price}}</p>
+        <p class="good-title">{{item.goods.name}}</p>
+        <p class="price">售价：{{item.goods.price}}</p>
         <div class="flex-row">
-          <inline-x-number v-model="item.count" :min="1" />
+          <inline-x-number v-model="item.number" :min="1" />
           <fa-icon class="icon-trash" icon="trash-alt" />
         </div>
       </div>
@@ -33,6 +33,21 @@ export default {
   components: {
     CheckIcon,
     InlineXNumber
+  },
+  data() {
+    return {
+      cartGoodses: null
+    }
+  },
+  watch: {
+    items(val, oldVal) {
+      this.cartGoodses = val.map(d => ({
+        _id: d._id,
+        number: d.number,
+        spec: d.spec,
+        goods: d.goods,
+      }));
+    },
   }
 }
 </script>

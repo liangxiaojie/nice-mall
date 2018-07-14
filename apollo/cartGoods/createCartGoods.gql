@@ -1,16 +1,13 @@
 mutation createCartGoods(
-  $number: String!,
-  $spec: String!
+  $goods_id: ID!,
+  $number: Int!,
+  $spec: [String]
   ) {
   createCartGoods(input: {
+    goods_id: $goods_id,
     number: $number,
     spec: $spec
   }) {
     _id
-    goods
-    number
-    spec
-    created_time
-    updated_time
   }
 }

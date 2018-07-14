@@ -9,7 +9,7 @@
     </goods>
     <div class="app-footer-container">
       <a class="app-footer-button" href="tel:0551-62887811">联系客服</a>
-      <div class="app-footer-button split" @click="handlePlaceOrder">加入购物车</div>
+      <div class="app-footer-button split" @click="handleAddCartGoods">加入购物车</div>
       <div class="app-footer-button invert" @click="handlePlaceOrder">立即下单</div>
     </div>
   </div>
@@ -35,9 +35,17 @@ export default {
     return { goods }
   },
   methods: {
+    handleAddCartGoods() {
+      this.$store.dispatch('cartGoods/AddCartGoods', this.goods);
+      this.$vux.toast.show({
+        type: 'success',
+        width: '1.5rem',
+        text: '已添加到购物车',
+      })
+    },
     handlePlaceOrder() {
 
-    }
+    },
   }
 }
 </script>

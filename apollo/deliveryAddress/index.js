@@ -3,7 +3,7 @@ import createDeliveryAddressGQL from './createDeliveryAddress.gql'
 import updateDeliveryAddressGQL from './updateDeliveryAddress.gql'
 import deleteDeliveryAddressGQL from './deleteDeliveryAddress.gql'
 
-export async function getDeliveryAddresses (client) {
+export async function getDeliveryAddresses(client) {
   const {data} = await client.query({
     query: deliveryAddressesGQL
   })

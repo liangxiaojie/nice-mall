@@ -8,10 +8,5 @@ mutation updateCartGoods(
     spec: $spec
   }) {
     _id
-    goods
-    number
-    spec
-    created_time
-    updated_time
   }
 }
