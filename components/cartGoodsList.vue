@@ -41,13 +41,11 @@ export default {
   },
   watch: {
     items(val, oldVal) {
-      this.cartGoodses = val.map(d => ({
-        _id: d._id,
-        number: d.number,
-        spec: d.spec,
-        goods: d.goods,
-      }));
+      this.cartGoodses = val.map(d => ({ ...d }));
     },
+  },
+  mounted() {
+    this.cartGoodses = this.items.map(d => ({ ...d }));
   },
   methods: {
     handleDelete(item) {

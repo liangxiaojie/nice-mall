@@ -4,9 +4,9 @@
     <group>
       <cell title="收货地址" value="" is-link value-align="left"></cell>
     </group>
-    <cartGoodsList :items="this.goodses" />
+    <cartGoodsList :items="orderInfo ? orderInfo.cartGoodses : []" />
     <group>
-      <CellFormPreview :list="this.preview" />
+      <CellFormPreview :list="preview" />
       <cell title="实付金额" value=""></cell>
     </group>
     <div class="app-footer-container">
@@ -37,7 +37,6 @@ export default {
   },
   data() {
     return {
-      goodses: null,
       preview: null,
       deliveryAddress: {
         consignee: '1',
@@ -50,7 +49,6 @@ export default {
     if (!this.orderInfo) {
       this.$router.go(-1);
     } else {
-      this.goodses = this.orderInfo.cartGoodses.map(cg => cg.goods);
       this.preview = [{
         label: '商品总价',
         value: ''
