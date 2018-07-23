@@ -124,13 +124,8 @@ export default {
       if (process.env.NODE_ENV === 'development') {
         await this.$store.dispatch('getWxUserinfo', '')
       } else {
-        const successUrl = window.location.pathname
-        const { success, data } = await this.$axios.$post('/api/auth/wxLogin', {successUrl});
-        if (success) {
-          window.location.href = data.url;
-        }
+        await this.$store.dispatch('getWxUserAuth')
       }
-
     }
   }
 }

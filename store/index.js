@@ -17,14 +17,21 @@ export default {
     }
   },
   actions: {
-    async getWxUserinfo({ commit, state }, code) {
+    async getWxUserAuth({ commit, state }) {
+      const successUrl = window.location.pathname
+      const { success, data } = await this.$axios.$post('/api/auth/wxLogin', {successUrl});
+      if (success) {
+        window.location.href = data.url;
+      }
+    },
+    async getWxUserinfo({ commit, dispatch, state }, code) {
       const client = this.app.apolloProvider.defaultClient
       try {
         const { wxUserinfo } = await getWxUserinfo(client, code)
         commit('userLogin', wxUserinfo)
       } catch (error) {
         if (error.statusCode === '401') {
-          commit('userLogin', null)
+          dispatch('getWxUserAuth')
         }
       }
     },
@@ -37,18 +44,24 @@ export default {
       const { appId, timeStamp, nonceStr, paySign, signType } = prepay;
 
       //调用微信JS api 支付
-      function onBridgeReady() {
+      const onBridgeReady = () => {
         WeixinJSBridge.invoke('getBrandWCPayRequest', {
           appId, timeStamp, nonceStr, package: prepay.package, paySign, signType
-        }, function(res){
-            WeixinJSBridge.log(res.err_msg);
-            alert('CODE: '+res.err_code+' DESC: '+res.err_desc+' MSG: '+res.err_msg);
+        }, (res) => {
             if(res.err_msg == "get_brand_wcpay_request:ok" ) {
-
+              this.$vux.toast.show({
+                type: 'success',
+                width: '1.5rem',
+                text: '支付成功',
+              })
             } else if(res.err_msg == 'get_brand_wcpay_request:cancel') {
-
+              this.$vux.toast.show({
+                type: 'error',
+                width: '1.5rem',
+                text: '已取消支付',
+              })
             } else if(res.err_msg == 'get_brand_wcpay_request:fail') {
-
+              alert(`CODE: ${res.err_code} DESC: ${res.err_desc} MSG: ${res.err_msg}`);
             }
           }
         );
