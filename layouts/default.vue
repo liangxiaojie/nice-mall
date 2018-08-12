@@ -14,6 +14,11 @@ export default {
         }]
     }
   },
+  async beforeMount() {
+    if (!this.$store.getters.user) {
+      await this.$store.dispatch('getWxUserinfo');
+    }
+  }
 }
 </script>
 

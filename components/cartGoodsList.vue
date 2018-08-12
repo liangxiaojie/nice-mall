@@ -41,11 +41,15 @@ export default {
   },
   watch: {
     items(val, oldVal) {
-      this.cartGoodses = val.map(d => ({ ...d }));
+      if (val && val.length > 0) {
+        this.cartGoodses = val.map(d => ({ ...d }));
+      }
     },
   },
   mounted() {
-    this.cartGoodses = this.items.map(d => ({ ...d }));
+    if (this.items && this.items.length > 0) {
+      this.cartGoodses = this.items.map(d => ({ ...d }));
+    }
   },
   methods: {
     handleDelete(item) {

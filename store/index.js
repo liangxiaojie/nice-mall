@@ -17,11 +17,13 @@ export default {
     }
   },
   actions: {
-    async getWxUserAuth({ commit, state }) {
-      const successUrl = window.location.pathname
+    async getWxUserAuth({ commit, state }, successUrl) {
+      successUrl = successUrl || window.location.pathname
       const { success, data } = await this.$axios.$post('/api/auth/wxLogin', {successUrl});
       if (success) {
-        window.location.href = data.url;
+        if (!process.server) {
+          window.location.href = data.url;
+        }
       }
     },
     async getWxUserinfo({ commit, dispatch, state }, code) {
@@ -31,7 +33,7 @@ export default {
         commit('userLogin', wxUserinfo)
       } catch (error) {
         if (error.statusCode === '401') {
-          dispatch('getWxUserAuth')
+          dispatch('getWxUserAuth', '')
         }
       }
     },
