@@ -1,10 +1,10 @@
 <template>
   <div class="container">
-    <appHeader title="收货地址管理" />
+    <appHeader title="收货地址" />
     <div class="address-item" v-for="(item, key) in deliveryAddresses" :key="key">
       <div>
         <span>{{ item.consignee }}</span>
-        <span>{{ item.phone_number }}</span>
+        <span class="phone-number">{{ item.phone_number }}</span>
       </div>
       <p><span v-if="item.is_default" class="address-default">[默认地址]</span> {{ item.address }}</p>
       <div class="actions">
@@ -55,6 +55,7 @@ export default {
 .container {
   margin-top: .45rem;
   margin-bottom: .5rem;
+  overflow: auto;
 }
 .footer {
   position: fixed;
@@ -67,6 +68,20 @@ export default {
   background-color: rgb(245, 245, 245);
 }
 .address-default {
-  color: #f3cb4d;
+  color: #ff8800;
+}
+.address-item {
+  margin: .05rem;
+  padding: .1rem;
+  border: .01rem solid #dbdbdb;
+  font-size: .14rem;
+}
+.phone-number {
+  margin-left: .1rem;
+}
+.actions {
+  position: relative;
+  top: -0.35rem;
+  float: right;
 }
 </style>
