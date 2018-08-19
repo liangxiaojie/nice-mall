@@ -4,10 +4,10 @@
     <group>
       <cell title="收货地址" value="" is-link value-align="left"></cell>
     </group>
-    <cartGoodsList :items="orderInfo ? orderInfo.cartGoodses : []" />
+    <cartGoodsList :items="orderInfo ? orderInfo.cartGoodses : []" :disabledEdit="true" />
     <group>
       <CellFormPreview :list="preview" />
-      <cell title="实付金额" value=""></cell>
+      <cell title="实付金额" :value="payCount"></cell>
     </group>
     <div class="app-footer-container">
       <div class="app-footer-button invert" @click="handlePayment">确认支付</div>
@@ -38,6 +38,7 @@ export default {
   data() {
     return {
       preview: null,
+      payCount: 0,
       deliveryAddress: {
         consignee: '1',
         phone_number: '2',
@@ -49,20 +50,26 @@ export default {
     if (!this.orderInfo) {
       this.$router.go(-1);
     } else {
+      let count = 0;
+      this.orderInfo.cartGoodses.map(item => {
+        count += item.goods.price * item.number
+      })
+      const discount = 0;
       this.preview = [{
         label: '商品总价',
-        value: ''
+        value: count
       }, {
         label: '优惠',
-        value: ''
+        value: discount
       }];
+      this.payCount = count - discount
     }
   },
   methods: {
     async handlePayment() {
       const cartGoodses = this.orderInfo.cartGoodses.map(item => ({
         goods_id: item.goods._id,
-        number: 1,
+        number: item.number || 1,
       }));
 
       await this.$store.dispatch('wxPayUnifiedorder', {

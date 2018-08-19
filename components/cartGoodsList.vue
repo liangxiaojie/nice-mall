@@ -1,7 +1,7 @@
 <template>
   <div class="good-list">
     <div class="item" v-for="(item, key) in cartGoodses" :key="key">
-      <div class="checkbox-container">
+      <div class="checkbox-container" v-if="!disabledEdit" >
         <CheckIcon :value.sync="item.checked" />
       </div>
       <div class="good-image">
@@ -11,8 +11,9 @@
         <p class="good-title">{{item.goods.name}}</p>
         <p class="price">售价：{{item.goods.price}}</p>
         <div class="flex-row">
-          <inline-x-number v-model="item.number" :min="1" />
-          <fa-icon class="icon-trash" icon="trash-alt" @click="handleDelete(item)" />
+          <inline-x-number v-if="!disabledEdit" v-model="item.number" :min="1" />
+          <span v-else>数量：{{item.number}}</span>
+          <fa-icon v-if="!disabledEdit" class="icon-trash" icon="trash-alt" @click="handleDelete(item)" />
         </div>
       </div>
     </div>
@@ -25,9 +26,11 @@ export default {
   props: {
     items: {
       type: Array,
-      default: function() {
-        return []
-      }
+      default: () => []
+    },
+    disabledEdit: {
+      type: Boolean,
+      default: () => false
     }
   },
   components: {

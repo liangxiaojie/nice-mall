@@ -44,7 +44,14 @@ export default {
       })
     },
     handlePlaceOrder() {
-
+      const orderInfo = {
+        cartGoodses: [{
+          goods: this.goods,
+          number: 1
+        }],
+      }
+      this.$store.commit('confirmOrder', orderInfo);
+      this.$router.push('/order/confirmOrder');
     },
   }
 }
